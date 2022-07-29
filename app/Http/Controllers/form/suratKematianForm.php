@@ -3,10 +3,9 @@
 namespace App\Http\Controllers\form;
 
 use App\Http\Controllers\Controller;
-use App\Models\penduduk;
 use Illuminate\Http\Request;
 
-class pendudukform extends Controller
+class suratKematianForm extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +14,7 @@ class pendudukform extends Controller
      */
     public function index()
     {
-        return view('form.penduduk-form');
+        return view('form.surat-kematian-form');
     }
 
     /**
@@ -36,38 +35,7 @@ class pendudukform extends Controller
      */
     public function store(Request $request)
     {
-        $validatedData = $request->validate([
-            'no_kk' => 'required|max:25',
-            'nik' => 'required|max:25',
-            'nama_lengkap' => 'required',
-            'tempat_lahir' => 'required',
-            'tanggal_lahir' => 'required',
-            'jenis_kelamin' => 'required',
-            'dukuh' => 'required',
-            'rt' => 'required',
-            'rw' => 'required',
-            'pekerjaan' => 'required',
-            'agama' => 'required',
-        ]);
-
-        $penduduk = new penduduk();
-        $penduduk->no_kk = $request->no_kk;
-        $penduduk->nik = $request->nik;
-        $penduduk->nama_lengkap = $request->nama_lengkap;
-        $penduduk->tempat_lahir = $request->tempat_lahir;
-        $penduduk->tanggal_lahir = $request->tanggal_lahir;
-        $penduduk->jenis_kelamin = $request->jenis_kelamin;
-        $penduduk->status_kawin = $request->status_kawin;
-        $penduduk->dukuh = $request->dukuh;
-        $penduduk->rt = $request->rt;
-        $penduduk->rw = $request->rw;
-        $penduduk->agama = $request->agama;
-        $penduduk->pekerjaan = $request->pekerjaan;
-        $penduduk->keterangan = $request->keterangan;
-
-        $penduduk->save();
-
-        return redirect('/lihatpenduduk')->with('status', 'Form Data Has Been Inserted');
+        //
     }
 
     /**
@@ -112,6 +80,6 @@ class pendudukform extends Controller
      */
     public function destroy($id)
     {
-
+        //
     }
 }

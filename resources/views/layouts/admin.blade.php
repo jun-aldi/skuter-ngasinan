@@ -143,7 +143,7 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link"
-                            href="http://bootstrapdash.com/demo/star-admin2-free/docs/documentation.html">
+                            href="{{ URL::to('suratkematian') }}">
                             <i class="menu-icon mdi mdi-file-document"></i>
                             <span class="menu-title">Surat Kematian</span>
                         </a>

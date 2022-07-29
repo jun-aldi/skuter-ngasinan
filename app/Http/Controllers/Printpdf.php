@@ -90,9 +90,7 @@ class Printpdf extends Controller
 
 
         $pdfContent = PDF::loadView('print.pengantar',$data)->output();
-        return response()->streamDownload(
-        fn () => print($pdfContent),
-        "$filename"
-        );
+        $pdf = PDF::loadView('print.pengantar', $data);
+        return $pdf->stream($filename);
     }
 }

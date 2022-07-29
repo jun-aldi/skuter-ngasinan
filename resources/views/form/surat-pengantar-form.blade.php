@@ -171,6 +171,8 @@
                 $('#status_kawin').val(obj.status_kawin);
                 $('#no_kk').val(obj.no_kk);
                 $('#alamat').val(obj.alamat);
+                $('#pekerjaan').val(obj.pekerjaan);
+                $('#agama').val(obj.agama);
                 document.getElementById("nik-danger").style.visibility = "hidden";
                 var result = confirm("Data berhasil ditemukan !");
             }).error(function(data){

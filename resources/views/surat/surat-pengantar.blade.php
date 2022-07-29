@@ -6,7 +6,7 @@
             <div class="card-body">
                 <h4 class="card-title">Table Surat Pengantar</h4>
                 <p class="card-description">
-                    Generate Surat pengantar Desa Ngasinan
+                    Generate Surat Pengantar Desa Ngasinan
                 </p>
                 <a href="{{ URL::to('suratpengantarform') }}" class="btn btn-primary text-white me-0">Tambah Data</a>
                 <div class="table-responsive">
@@ -293,6 +293,8 @@
                 $('#status_kawin').val(obj.status_kawin);
                 $('#no_kk').val(obj.no_kk);
                 $('#alamat').val(obj.alamat);
+                $('#pekerjaan').val(obj.pekerjaan);
+                $('#agama').val(obj.agama);
                 document.getElementById("nik-danger").style.visibility = "hidden";
                 var result = confirm("Data berhasil ditemukan !");
             }).error(function(data) {

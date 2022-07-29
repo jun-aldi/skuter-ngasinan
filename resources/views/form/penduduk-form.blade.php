@@ -115,29 +115,6 @@
                         @enderror
                     </div>
                     <div class="form-group">
-                        <label for="disabilitas">Disabilitas</label>
-                        <select class="form-control" name="disabilitas" id="disabilitas">
-                            <option value="0">0</option>
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                        </select>
-                        @error('disabilitas')
-                            <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
-                        @enderror
-                    </div>
-                    <div class="form-group">
-                        <label for="status_perekaman">Status Perekaman</label>
-                        <select class="form-control" name="status_perekaman" id="status_perekaman">
-                            <option value="B">Belum</option>
-                            <option value="K">Sudah</option>
-                        </select>
-                        @error('status_perekaman')
-                            <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
-                        @enderror
-                    </div>
-                    <div class="form-group">
                         <label for="keterangan">Ket Lainnya</label>
                         <textarea name="keterangan" class="form-control" id="keterangan" rows="8" placeholder="Keterangan Tambahan"></textarea>
                         @error('keterangan')

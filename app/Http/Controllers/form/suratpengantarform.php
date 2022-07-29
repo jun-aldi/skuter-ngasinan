@@ -145,6 +145,8 @@ class suratpengantarform extends Controller
             "status_kawin" => $this->status_kawin = $penduduk->status_kawin,
             "no_kk" => $this->no_kk = $penduduk->no_kk,
             "alamat" => $this->dukuh = $penduduk->dukuh .", RT ". $this->rt = $penduduk->rt ."/RW ". $this->rw = $penduduk->rw .", DESA NGASINAN",
+            "pekerjaan" => $this->pekerjaan = $penduduk->pekerjaan,
+            "agama" => $this->agama = $penduduk->agama,
          ];
         //tampil data
         echo json_encode($data);

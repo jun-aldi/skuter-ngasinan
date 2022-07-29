@@ -20,8 +20,8 @@ class penduduk extends Controller
             return Datatables::of($data)
                 ->addIndexColumn()
                 ->addColumn('action', function ($data) {
-                    $btn = ' <a href="javascript:void(0)" data-toggle="tooltip" data-id="' . $data->id . '" data-original-title="Delete" class="btn btn-danger btn-sm deletePengantar text-white ">Delete</a>';
-                    $btn .= '<a href="javascript:void(0)" data-toggle="tooltip" data-id="' . $data->id . '" data-original-title="Edit" class="edit btn btn-primary btn-sm editPengantar text-white">Edit</a>';
+                    $btn = ' <a href="javascript:void(0)" data-toggle="tooltip" data-id="' . $data->id . '" data-original-title="Delete" class="btn btn-danger btn-sm deletePenduduk text-white ">Delete</a>';
+                    $btn .= '<a href="javascript:void(0)" data-toggle="tooltip" data-id="' . $data->id . '" data-original-title="Edit" class="edit btn btn-primary btn-sm editPenduduk text-white">Edit</a>';
                     return $btn;
                 })
                 ->rawColumns(['action'])
@@ -49,7 +49,41 @@ class penduduk extends Controller
      */
     public function store(Request $request)
     {
-        //
+        request()->validate([
+            'no_kk' => 'required|max:25',
+            'nik' => 'required|max:25',
+            'nama_lengkap' => 'required',
+            'tempat_lahir' => 'required',
+            'tanggal_lahir' => 'required',
+            'jenis_kelamin' => 'required',
+            'dukuh' => 'required',
+            'rt' => 'required',
+            'rw' => 'required',
+            'pekerjaan' => 'required',
+            'agama' => 'required',
+        ]);
+
+
+        ModelsPenduduk::updateOrCreate(['id' => $request->id], [
+
+            'no_kk' => $request->no_kk,
+            'nik' => $request->nik,
+            'nama_lengkap' => $request->nama_lengkap,
+            'tempat_lahir' => $request->tempat_lahir,
+            'tanggal_lahir' => $request->tanggal_lahir,
+            'jenis_kelamin' => $request->jenis_kelamin,
+            'status_kawin' => $request->status_kawin,
+            'dukuh' => $request->dukuh,
+            'rt' => $request->rt,
+            'rw' => $request->rw,
+            'agama' => $request->agama,
+            'pekerjaan' => $request->pekerjaan,
+            'keterangan' >= $request->keterangan,
+
+        ]);
+
+
+        return response()->json(['success' => 'Data berhasil disimpan.']);
     }
 
     /**
@@ -71,7 +105,8 @@ class penduduk extends Controller
      */
     public function edit($id)
     {
-        //
+        $penduduk = ModelsPenduduk::find($id);
+        return response()->json($penduduk);
     }
 
     /**
@@ -94,6 +129,9 @@ class penduduk extends Controller
      */
     public function destroy($id)
     {
-        //
+        $penduduk = ModelsPenduduk::where('id', $id)->firstOrFail();
+        ModelsPenduduk::find($id)->delete();
+
+        return response()->json(['success' => 'Data Penduduk berhasil dihapus.']);
     }
 }
