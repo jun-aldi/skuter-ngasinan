@@ -49,11 +49,6 @@
             color: mediumblue;
             font-weight: 900;
         }
-
-        @media (min-width: 576px) .modal-dialog {
-            max-width: 1000px;
-            margin: 1.75rem auto;
-        }
     </style>
 </head>
 
@@ -165,6 +160,14 @@
                             href="http://bootstrapdash.com/demo/star-admin2-free/docs/documentation.html">
                             <i class="menu-icon mdi mdi-file-document"></i>
                             <span class="menu-title">Pindah</span>
+                        </a>
+                    </li>
+                    <li class="nav-item nav-category">Kependudukan</li>
+                    <li class="nav-item">
+                        <a class="nav-link"
+                            href="{{ URL::to('lihatpenduduk') }}">
+                            <i class="menu-icon mdi mdi-file-document"></i>
+                            <span class="menu-title">Lihat Penduduk</span>
                         </a>
                     </li>
                 </ul>

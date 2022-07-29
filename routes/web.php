@@ -3,7 +3,9 @@
 use App\Http\Controllers\SuratPengantar;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Dashboard;
+use App\Http\Controllers\form\pendudukform;
 use App\Http\Controllers\form\suratpengantarform;
+use App\Http\Controllers\penduduk;
 use App\Http\Controllers\Printpdf;
 use App\Http\Controllers\suratpengantar as ControllersSuratpengantar;
 
@@ -32,9 +34,10 @@ Route::middleware([
 
     //datatables
     Route::resource('suratpengantar', suratpengantar::class);
-
+    Route::resource('lihatpenduduk', penduduk::class);
     //form
     Route::resource('suratpengantarform', suratpengantarform::class);
+    Route::resource('pendudukform', pendudukform::class);
 
     //print
     Route::post('/lihatPDF/{id}', [Printpdf::class, 'printPengantar'])->name('printPengantar');
