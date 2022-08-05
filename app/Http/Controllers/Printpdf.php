@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\surat_pengantar;
+use App\Models\surat_pindah;
 use Illuminate\Http\Request;
 use Barryvdh\DomPDF\Facade\PDF;
 use DateTime;
@@ -90,6 +91,73 @@ class Printpdf extends Controller
 
 
         $pdfContent = PDF::loadView('print.pengantar',$data)->output();
+        $pdf = PDF::loadView('print.pengantar', $data);
+        return $pdf->stream($filename);
+    }
+
+
+    public function printpindah($id)
+    {
+        $bulan = array (1 =>   'Januari',
+        'Februari',
+        'Maret',
+        'April',
+        'Mei',
+        'Juni',
+        'Juli',
+        'Agustus',
+        'September',
+        'Oktober',
+        'November',
+        'Desember'
+        );
+
+        //TANGGAL LAHIR
+        $pindah = surat_pindah::findOrFail($id);
+
+
+        //CREATED AT
+        $created_at = date("Y-m-d", strtotime($this->created_at=$pindah->created_at,));
+        $split = explode('-', $created_at );
+        $created_at = $split[2] . ' ' . $bulan[ (int)$split[1] ] . ' ' . $split[0];
+
+        //TAMBAH BULAN
+        $bulan_akhir = $this->created_at=$pindah->created_at;
+        $bulan_akhir = DateTime::createFromFormat('Y-m-d', $bulan_akhir);
+        $bulan_akhir->modify('+1 month');
+        $bulan_akhir = $bulan_akhir->format('Y-m-d');
+        $bulan_akhir = date("Y-m-d", strtotime($bulan_akhir));
+        $split = explode('-', $bulan_akhir );
+        $bulan_akhir = $split[2] . ' ' . $bulan[ (int)$split[1] ] . ' ' . $split[0];
+
+        //pejabat penandatangan
+        if($this->pejabat_penandatangan=$pindah->pejabat_penandatangan == "kepala desa"){
+            $pejabat = "KEPALA DESA";
+            $nama_pejabat = "IBNU WIYANTO";
+        }else{
+            $pejabat = "SEKRETARIS DESA";
+            $nama_pejabat = "Dra. PARSINI";
+        }
+
+        $data = [
+            $pengantar = surat_pengantar::findOrFail($id),
+            "id" => $this->id=$pengantar->id,
+            "nik_kepala_keluarga" => $this->nik_kepala_keluarga = $pengantar->nik_kepala_keluarga,
+
+        ];
+
+
+            // $disposisis_id=$id;
+
+            // $no_agenda = $agenda->$id;
+
+
+
+        $filename ="Surat Pindah" . $data['nik'].".pdf";
+
+
+
+        // $pdfContent = PDF::loadView('print.pengantar',$data)->output();
         $pdf = PDF::loadView('print.pengantar', $data);
         return $pdf->stream($filename);
     }

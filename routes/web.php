@@ -6,10 +6,12 @@ use App\Http\Controllers\Dashboard;
 use App\Http\Controllers\form\pendudukform;
 use App\Http\Controllers\form\suratKematianForm;
 use App\Http\Controllers\form\suratpengantarform;
+use App\Http\Controllers\form\suratPindahForm;
 use App\Http\Controllers\penduduk;
 use App\Http\Controllers\Printpdf;
 use App\Http\Controllers\suratKematian;
 use App\Http\Controllers\suratpengantar as ControllersSuratpengantar;
+use App\Http\Controllers\suratPindah;
 
 /*
 |--------------------------------------------------------------------------
@@ -38,12 +40,14 @@ Route::middleware([
     Route::resource('suratpengantar', suratpengantar::class);
     Route::resource('lihatpenduduk', penduduk::class);
     Route::resource('suratkematian', suratKematian::class);
+    Route::resource('suratpindah', suratPindah::class);
 
 
     //form
     Route::resource('suratpengantarform', suratpengantarform::class);
     Route::resource('pendudukform', pendudukform::class);
     Route::resource('suratkematianform', suratKematianForm::class);
+    Route::resource('suratpindahform', suratPindahForm::class);
 
     //print
     Route::post('/lihatPDF/{id}', [Printpdf::class, 'printPengantar'])->name('printPengantar');

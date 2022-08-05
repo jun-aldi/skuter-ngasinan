@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\surat_kematian;
 use Illuminate\Http\Request;
+use Yajra\DataTables\Facades\DataTables;
 
 class suratKematian extends Controller
 {
@@ -11,8 +13,25 @@ class suratKematian extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
+        if ($request->ajax()) {
+            $data = surat_kematian::select(['id', 'nik_meninggal', 'created_at', 'tanggal_meninggal','no_surat', 'sebab_meninggal']);
+            return Datatables::of($data)
+                ->addIndexColumn()
+                ->addColumn('action', function ($data) {
+                    $btn = ' <a href="javascript:void(0)" data-toggle="tooltip" data-id="' . $data->id . '" data-original-title="Delete" class="btn btn-danger btn-sm deleteKematian text-white ">Delete</a>';
+                    $btn .= '<a href="javascript:void(0)" data-toggle="tooltip" data-id="' . $data->id . '" data-original-title="Edit" class="edit btn btn-primary btn-sm editKematian text-white">Edit</a>';
+                    return $btn;
+                })
+                ->addColumn('lihatpdf', function ($data) {
+
+                    $url_download_file = route('printPengantar', $data->id);
+                    return view('print.download-pengantar')->with('url_download_file', $url_download_file)->render();
+                })
+                ->rawColumns(['action','lihatpdf'])
+                ->make(true);
+        }
         return view('surat.surat-kematian');
     }
 
@@ -34,7 +53,7 @@ class suratKematian extends Controller
      */
     public function store(Request $request)
     {
-        //
+
     }
 
     /**
@@ -79,6 +98,9 @@ class suratKematian extends Controller
      */
     public function destroy($id)
     {
-        //
+        $kematian = surat_kematian::where('id', $id)->firstOrFail();
+        surat_kematian::find($id)->delete();
+
+        return response()->json(['success' => 'Surat kematian berhasil dihapus.']);
     }
 }

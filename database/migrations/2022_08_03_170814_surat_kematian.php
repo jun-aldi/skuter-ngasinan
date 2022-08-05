@@ -21,14 +21,14 @@ return new class extends Migration
             $table->enum('jenis_kelamin_meninggal', ['laki-laki', 'perempuan']);
             $table->string('tempat_lahir_meninggal');
             $table->dateTime('tanggal_lahir_meninggal');
-            $table->enum('agama_meninggal', ['islam','kristen', 'katolik', 'hindu', 'budha', 'konghucu']);
+            $table->enum('agama_meninggal', ['islam', 'kristen', 'katolik', 'hindu', 'budha', 'konghucu']);
             $table->string('pekerjaan_meninggal');
             $table->longText('alamat_meninggal');
             $table->string('no_kk_meninggal', 20);
             $table->string('status_anak_meninggal');
             $table->date('tempat_meninggal');
             $table->enum('sebab_meninggal', ['sakit']);
-            $table->enum('yang_menerangkan',['dokter']);
+            $table->enum('yang_menerangkan', ['dokter']);
             $table->string('bukti_kematian');
             $table->enum('pejabat_penandatangan', ['kepala desa', 'sekretaris desa']);
 
@@ -54,12 +54,18 @@ return new class extends Migration
             $table->longText('alamat_pelapor');
 
             //saksi
-            $table->string('nik_saksi', 16);
-            $table->string('nama_saksi');
-            $table->date('tanggal_lahir_saksi');
-            $table->string('pekerjaan_saksi');
-            $table->longText('alamat_saksi');
+            $table->string('nik_saksi_1', 16);
+            $table->string('nama_saksi_1');
+            $table->date('tanggal_lahir_saksi_1');
+            $table->string('pekerjaan_saksi_1');
+            $table->longText('alamat_saksi_1');
 
+            //saksi
+            $table->string('nik_saksi_2', 16);
+            $table->string('nama_saksi_2');
+            $table->date('tanggal_lahir_saksi_2');
+            $table->string('pekerjaan_saksi_2');
+            $table->longText('alamat_saksi_2');
 
 
             $table->softDeletes();

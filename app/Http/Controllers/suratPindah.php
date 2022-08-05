@@ -2,28 +2,26 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\surat_pengantar;
+use App\Models\surat_pindah;
 use Illuminate\Http\Request;
 use Yajra\DataTables\Facades\DataTables;
 
-class suratpengantar extends Controller
+class suratPindah extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-
-
     public function index(Request $request)
     {
         if ($request->ajax()) {
-            $data = surat_pengantar::select(['id', 'nik', 'created_at','tanggal_berlaku', 'no_surat', 'keterangan']);
-            return Datatables::of($data)
+            $data = surat_pindah::select(['id', 'no_kk', 'created_at', 'nama_kepala_keluarga','nik_pemohon', 'nama_lengkap']);
+            return DataTables::of($data)
                 ->addIndexColumn()
                 ->addColumn('action', function ($data) {
-                    $btn = ' <a href="javascript:void(0)" data-toggle="tooltip" data-id="' . $data->id . '" data-original-title="Delete" class="btn btn-danger btn-sm deletePengantar text-white ">Delete</a>';
-                    $btn .= '<a href="javascript:void(0)" data-toggle="tooltip" data-id="' . $data->id . '" data-original-title="Edit" class="edit btn btn-primary btn-sm editPengantar text-white">Edit</a>';
+                    $btn = ' <a href="javascript:void(0)" data-toggle="tooltip" data-id="' . $data->id . '" data-original-title="Delete" class="btn btn-danger btn-sm deletePindah text-white ">Delete</a>';
+                    $btn .= '<a href="javascript:void(0)" data-toggle="tooltip" data-id="' . $data->id . '" data-original-title="Edit" class="edit btn btn-primary btn-sm editPindah text-white">Edit</a>';
                     return $btn;
                 })
                 ->addColumn('lihatpdf', function ($data) {
@@ -34,8 +32,7 @@ class suratpengantar extends Controller
                 ->rawColumns(['action','lihatpdf'])
                 ->make(true);
         }
-
-        return view('surat.surat-pengantar');
+        return view('surat.surat-pindah');
     }
 
     /**
@@ -56,49 +53,41 @@ class suratpengantar extends Controller
      */
     public function store(Request $request)
     {
-
         request()->validate([
-            'nik' => 'required|max:25',
-            'nama_lengkap' => 'required',
-            'tempat_lahir' => 'required',
-            'tanggal_lahir' => 'required',
-            'jenis_kelamin' => 'required',
-            'kewarganegaraan' => 'required',
-            'agama' => 'required',
-            'pekerjaan' => 'required',
-            'status_kawin' => 'required',
-            'alamat' => 'required',
+            'nik_kepala_keluarga' => 'required|max:25',
             'no_kk' => 'required',
+            'nama_kepala_keluarga' => 'required',
+            'alamat' => 'required',
+            'nik_pemohon' => 'required',
+            'nama_lengkap' => 'required',
+            'telepon' => 'required',
             'no_surat' => 'required',
-            'tujuan' => 'required',
-            'keperluan' => 'required',
+            'alasan' => 'required',
+            'alamat_tujuan' => 'required',
+            'jenis_kepindahan' => 'required',
+            'status_kk_tidak_pindah' => 'required',
+            'status_kk_pindah' => 'required',
             'pejabat_penandatangan' => 'required',
         ]);
 
 
 
-        surat_pengantar::updateOrCreate(['id' => $request->id], [
-            'nik' => $request->nik,
-            'nama_lengkap' => $request->nama_lengkap,
-            'tempat_lahir' => $request->tempat_lahir,
-            'tanggal_lahir' => $request->tanggal_lahir,
-            'jenis_kelamin' => $request->jenis_kelamin,
-            'kewarganegaraan' => $request->kewarganegaraan,
-            'agama' => $request->agama,
-            'pekerjaan' => $request->pekerjaan,
-            'status_kawin' => $request->status_kawin,
-            'alamat' => $request->alamat,
+        surat_pindah::updateOrCreate(['id' => $request->id], [
+            'nik_kepala_keluarga' => $request->nik_kepala_keluarga,
             'no_kk' => $request->no_kk,
+            'nama_kepala_keluarga' => $request->nama_kepala_keluarga,
+            'alamat' => $request->alamat,
+            'nik_pemohon' => $request->nik_pemohon,
+            'nama_lengkap' => $request->nama_lengkap,
+            'telepon' => $request->telepon,
             'no_surat' => $request->no_surat,
-            'tujuan' => $request->tujuan,
-            'keperluan' => $request->keperluan,
-            'keterangan' => $request->keterangan,
-            'tanggal_berlaku' => $request->tanggal_berlaku,
+            'alasan' => $request->alasan,
+            'alamat_tujuan' => $request->alamat_tujuan,
+            'jenis_kepindahan' => $request->jenis_kepindahan,
+            'status_kk_tidak_pindah' => $request->status_kk_tidak_pindah,
+            'status_kk_pindah' => $request->status_kk_pindah,
             'pejabat_penandatangan' => $request->pejabat_penandatangan,
         ]);
-
-
-        return response()->json(['success' => 'Data berhasil disimpan.']);
     }
 
     /**
@@ -120,8 +109,8 @@ class suratpengantar extends Controller
      */
     public function edit($id)
     {
-        $surat_pengantar = surat_pengantar::find($id);
-        return response()->json($surat_pengantar);
+        $surat_pindah = surat_pindah::find($id);
+        return response()->json($surat_pindah);
     }
 
     /**
@@ -144,9 +133,9 @@ class suratpengantar extends Controller
      */
     public function destroy($id)
     {
-        $agenda = surat_pengantar::where('id', $id)->firstOrFail();
-        surat_pengantar::find($id)->delete();
+        $pindah = surat_pindah::where('id', $id)->firstOrFail();
+        surat_pindah::find($id)->delete();
 
-        return response()->json(['success' => 'Surat pengantar berhasil dihapus.']);
+        return response()->json(['success' => 'Surat Pindah Berhasil Dihapus.']);
     }
 }
