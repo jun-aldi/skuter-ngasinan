@@ -50,7 +50,8 @@ Route::middleware([
     Route::resource('suratpindahform', suratPindahForm::class);
 
     //print
-    Route::post('/lihatPDF/{id}', [Printpdf::class, 'printPengantar'])->name('printPengantar');
+    Route::post('/pengantarPDF/{id}', [Printpdf::class, 'printPengantar'])->name('printPengantar');
+    Route::post('/pindahanPDF/{id}', [Printpdf::class, 'printPindahan'])->name('printPindahan');
 
     //autofill
     Route::get('/autofill/{nik}', [suratpengantarform::class, 'autofill'])->name('autofill');

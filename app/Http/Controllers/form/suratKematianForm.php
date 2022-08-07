@@ -148,7 +148,7 @@ class suratKematianForm extends Controller
 
         $surat->save();
 
-        return redirect('/suratpengantar')->with('status', 'Form Data Has Been Inserted');
+        return redirect('/suratkematian')->with('status', 'Form Data Has Been Inserted');
     }
 
     /**

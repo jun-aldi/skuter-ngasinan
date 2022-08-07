@@ -19,6 +19,7 @@
                             <th>NIK</th>
                             <th>Tanggal Meninggal</th>
                             <th>Penyebab</th>
+                            <th>Print</th>
                             <th width="100px">Action</th>
                         </tr>
                     </thead>
@@ -73,6 +74,10 @@
                 {
                     data: 'sebab_meninggal',
                     name: 'sebab_meninggal'
+                },
+                {
+                    data: 'lihatpdf',
+                    name: 'lihatpdf'
                 },
                 {
                     data: 'action',

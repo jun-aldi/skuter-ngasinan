@@ -20,15 +20,6 @@
       p.surat {
     margin-left: 15rem;
 }
-p.pengantar {
-    margin-left: 25rem;
-}
-p.nomor {
-    margin-left: 20rem;
-}
-.kode-desa {
-    line-height: 4px;
-}
 .isikan-apa {
   margin-left: 3rem;
 }
@@ -58,6 +49,29 @@ p.ket-lain {
     margin-top: -27px;
     padding-left: 11.6rem;
 }
+table{
+    width:100%;
+    border-collapse:collapse;
+    text-align:center;
+    border:1px solid black;
+    font-size:12px;
+    }
+
+th,td{
+    border: 1px solid black;
+    padding-top: 3px;
+    padding-bottom: 3px
+}
+
+p.judul {
+    text-align: center;
+}
+
+p.nomor {
+    text-align: center !important;
+}
+
+
     </style>
   </head>
   <body>
@@ -83,5 +97,71 @@ p.ket-lain {
       </div>
     </div>
 
+    <div class="isi" style="font-family: 'Courier New', monospace;">
+        <div class="kode-desa" style="margin-left: 3rem">
+            <br>
+            <p>PROVINSI &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: 33 JAWA TENGGAH</p>
+            <p>KABUPATEN &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: 11 SUKOHARJO</p>
+            <P>KECAMATAN &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: 2 BULU</P>
+            <P>DESA/KELURAHAN &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: 2012 NGASINAN</P>
+            <P>DUSUN/DUKUH/KAMPUNG : {{$dukuh}}</P>
+        </div>
+
+
+      <p class="judul" style="font-size: large">PERMOHONAN PINDAH WNI</p>
+      <p class="nomor">Nomor &nbsp;:&nbsp; <span class="nosurat" style="letter-spacing: 2px; text-align: center"> {{ $no_surat}}</span></p>
+      <br>
+      <div class="isikan-apa">
+        <div class="isikan">
+            <br>
+            <p class="data-daerah-asal">
+                DATA DAERAH ASAL
+              </p>
+          <p>Nomor Kartu Keluarga &nbsp;&nbsp; : {{$no_kk}}</p>
+          <p>Nama Kepala Keluarga &nbsp;&nbsp;&nbsp;: {{$nama_kepala_keluarga}}</p>
+          <p>Alamat &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: {{$alamat}}</p>
+          <p>NIK Pemohon &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: {{$nik_pemohon}}</p>
+          <p>Nama Lengkap &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: {{$nama_lengkap}}</p>
+          <p>Telepon &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: {{$telepon}}</p>
+          <br>
+          <p class="data-daerah-asal">DATA KEPINDAHAN</p>
+          <p>Alasan Pindah &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</p>
+          <p class="keperluan">{{$alasan}}</p>
+          <p>Alamat Tujuan Pindah &nbsp;&nbsp;&nbsp;:</p>
+          <p class="tujuan">{{$alamat_tujuan}}</p>
+          <p>Jenis Kepindahan &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: {{$jenis_kepindahan}}</p>
+          <p>Status KK Tidak Pindah &nbsp;: </p>
+          <p class="ket-lain">{{$status_kk_tidak_pindah}}</p>
+          <p>Status KK Pindah &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: </p>
+          <p class="ket-lain">{{$status_kk_pindah}}</p>
+          <br>
+          DATA KELUARGA
+          <br>
+          <br>
+          <table style="width:100%">
+            <tr>
+              <th>No</th>
+              <th>NIK</th>
+              <th>Nama</th>
+              <th>Keterangan</th>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td>{{$nik_pemohon}}</td>
+              <td>{{$nama_lengkap}}</td>
+              <td>Pindah</td>
+            </tr>
+          </table>
+        </div>
+        <br>
+        <p style="text-align: right">Ngasinan, {{$created_at}}</p>
+        <br>
+        <p class="pemegang">Tanda Tangan Pemegang</p>
+        <p class="kepala-desa">{{$pejabat}}</p>
+        <p class="nama">{{$nama_lengkap}}</p>
+        <p class="namakepala">{{$nama_pejabat}}</p>
+      </div>
+
+    </div>
   </body>
 </html>

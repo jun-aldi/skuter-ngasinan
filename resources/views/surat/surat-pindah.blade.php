@@ -19,6 +19,7 @@
                                 <th>Nama Kepala KK</th>
                                 <th>NIK Pemohon</th>
                                 <th>Nama Pemohon</th>
+                                <th>Print</th>
                                 <th width="100px">Action</th>
                             </tr>
                         </thead>
@@ -30,85 +31,98 @@
         </div>
     </div>
 
-    {{-- edit --}}
-    <div class="modal fade" id="ajaxEdit" aria-hidden="true">
-        <div class="modal-dialog modal-xl">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h4 class="modal-title" id="modelHeading"></h4>
+
+        {{-- edit --}}
+        <div class="modal fade" id="ajaxEdit" aria-hidden="true">
+            <div class="modal-dialog modal-xl">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title" id="modelHeading"></h4>
+                    </div>
+                    <div class="modal-body">
+                        <form class="forms-horizontal" name="editPindahForm" id="editPindahForm" method="post">
+                            <input type="hidden" name="id" id="id">
+                            <div class="form-group">
+                                <label for="nik_kepala_keluarga">NIK Kepala Keluarga</label>
+                                <input onkeyup="isi_otomatis_kk()" type="text" class="form-control"
+                                    name="nik_kepala_keluarga" id="nik_kepala_keluarga"
+                                    placeholder="Masukan NIK Kepala Keluarga Pemohon">
+                            </div>
+                            <div class="form-group">
+                                <label for="no_kk">No KK</label>
+                                <input name="no_kk" type="text" class="form-control" id="no_kk"
+                                    placeholder="Masukan Nomor KK">
+                            </div>
+                            <div class="form-group">
+                                <label for="nama_kepala_keluarga">Nama Kepala Keluarga</label>
+                                <input type="text" class="form-control" name="nama_kepala_keluarga" id="nama_kepala_keluarga"
+                                    placeholder="Masukan Nama Kepala Keluarga">
+                            </div>
+                            <div class="form-group">
+                                <label for="alamat">Alamat</label>
+                                <textarea name="alamat" class="form-control" id="alamat" rows="8"></textarea>
+                            </div>
+                            <br><br>
+                            <div class="form-group">
+                                <label for="nik_pemohon">NIK Pemohon</label>
+                                <input onkeyup="isi_otomatis_pemohon()" type="text" class="form-control" name="nik_pemohon"
+                                    id="nik_pemohon" placeholder="Masukan NIK Pemohon">
+                            </div>
+                            <div class="form-group">
+                                <label for="nama_lengkap">Nama Lengkap Pemohon</label>
+                                <input type="text" class="form-control" name="nama_lengkap" id="nama_lengkap"
+                                    placeholder="Masukan Nama Lengkap Pemohon">
+                            </div>
+                            <div class="form-group">
+                                <label for="telepon">Telepon</label>
+                                <input type="text" class="form-control" name="telepon" id="telepon"
+                                    placeholder="Masukan Nomor Telepon">
+                            </div>
+                            <div class="form-group">
+                                <label for="no_surat">Nomor Surat</label>
+                                <input name="no_surat" type="text" class="form-control" id="no_surat"
+                                    placeholder="Masukan Nomor Surat">
+                            </div>
+                            <div class="form-group">
+                                <label for="alasan">Alasan</label>
+                                <textarea name="alasan" class="form-control" id="alasan" rows="8" placeholder="Alasan Pindah"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="alamat_tujuan">Alamat Tujuan</label>
+                                <textarea name="alamat_tujuan" class="form-control" id="alamat_tujuan" rows="8"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="jenis_kepindahan">Jenis Kepindahan</label>
+                                <select name="jenis_kepindahan" class="form-control" id="jenis_kepindahan">
+                                    <option value="pindah">Pindah</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="status_kk_tidak_pindah">Status KK Tidak Pindah</label>
+                                <select name="status_kk_tidak_pindah" class="form-control" id="status_kk_tidak_pindah">
+                                    <option value="pindah">Pindah</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="status_kk_pindah">Status KK Pindah</label>
+                                <select name="status_kk_pindah" class="form-control" id="status_kk_pindah">
+                                    <option value="pindah">Pindah</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="pejabat_penandatangan">Pejabat Penandatangan</label>
+                                <select name="pejabat_penandatangan" class="form-control" id="pejabat_penandatangan">
+                                    <option value="kepala desa">Kepala Desa</option>
+                                    <option value="sekretaris desa">Sekretaris Desa</option>
+                                </select>
+                            </div>
+                            <button type="submit" class="btn btn-primary me-2 text-white" id="saveBtnEdit"
+                                value="create">Simpan Perubahan</button>
+                        </form>
+                    </div>
                 </div>
-                <form class="forms-sample" name="editPindahForm" id="editPindahForm" method="post">
-                <div class="form-group">
-                    <label for="nik_kepala_keluarga">NIK Kepala Keluarga</label>
-                    <input onkeyup="isi_otomatis_kk()" type="text" class="form-control" name="nik_kepala_keluarga" id="nik_kepala_keluarga" placeholder="Masukan NIK Kepala Keluarga Pemohon">
-                </div>
-                <div class="form-group">
-                    <label for="no_kk">No KK</label>
-                    <input name="no_kk" type="text" class="form-control" id="no_kk" placeholder="Masukan Nomor KK">
-                </div>
-                <div class="form-group">
-                    <label for="nama_kepala_keluarga">Nama Kepala Keluarga</label>
-                    <input type="text" class="form-control" name="nama_kepala_keluarga" id="nama_kepala_keluarga" placeholder="Masukan Nama Kepala Keluarga">
-                </div>
-                <div class="form-group">
-                    <label for="alamat">Alamat</label>
-                    <textarea name="alamat" class="form-control" id="alamat" rows="8"></textarea>
-                </div>
-                <br><br>
-                <div class="form-group">
-                    <label for="nik_pemohon">NIK Pemohon</label>
-                    <input onkeyup="isi_otomatis_pemohon()" type="text" class="form-control" name="nik_pemohon" id="nik_pemohon" placeholder="Masukan NIK Pemohon">
-                </div>
-                <div class="form-group">
-                    <label for="nama_lengkap">Nama Lengkap Pemohon</label>
-                    <input type="text" class="form-control" name="nama_lengkap" id="nama_lengkap" placeholder="Masukan Nama Lengkap Pemohon">
-                </div>
-                <div class="form-group">
-                    <label for="telepon">Telepon</label>
-                    <input type="text" class="form-control" name="telepon" id="telepon" placeholder="Masukan Nomor Telepon">
-                </div>
-                <div class="form-group">
-                    <label for="no_surat">Nomor Surat</label>
-                    <input name="no_surat" type="text" class="form-control" id="no_surat" placeholder="Masukan Nomor Surat">
-                </div>
-                <div class="form-group">
-                    <label for="alasan">Alasan</label>
-                    <textarea name="alasan" class="form-control" id="alasan" rows="8" placeholder="Alasan Pindah"></textarea>
-                </div>
-                <div class="form-group">
-                    <label for="alamat_tujuan">Alamat Tujuan</label>
-                    <textarea name="alamat_tujuan" class="form-control" id="alamat_tujuan" rows="8"></textarea>
-                </div>
-                <div class="form-group">
-                    <label for="jenis_kepindahan">Jenis Kepindahan</label>
-                    <select name="jenis_kepindahan" class="form-control" id="jenis_kepindahan">
-                        <option value="pindah">Pindah</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="status_kk_tidak_pindah">Status KK Tidak Pindah</label>
-                    <select name="status_kk_tidak_pindah" class="form-control" id="status_kk_tidak_pindah">
-                        <option value="pindah">Pindah</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="status_kk_pindah">Status KK Pindah</label>
-                    <select name="status_kk_pindah" class="form-control" id="status_kk_pindah">
-                        <option value="pindah">Pindah</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="pejabat_penandatangan">Pejabat Penandatangan</label>
-                    <select name="pejabat_penandatangan" class="form-control" id="pejabat_penandatangan">
-                        <option value="kepala desa">Kepala Desa</option>
-                        <option value="sekretaris desa">Sekretaris Desa</option>
-                    </select>
-                </div>
-                <button type="submit" class="btn btn-primary me-2 text-white">Submit</button>
-            </form>
             </div>
         </div>
-    </div>
 
 
     <script type="text/javascript">
@@ -154,6 +168,12 @@
                         data: 'nama_lengkap',
                         name: 'nama_lengkap',
 
+                    },
+                    {
+                        data: 'lihatpdf',
+                        name: 'lihatpdf',
+                        orderable: false,
+                        searchable: false
                     },
                     {
                         data: 'action',
@@ -239,5 +259,43 @@
             });
 
         });
+    </script>
+
+    <script type="text/javascript">
+        function isi_otomatis_kk() {
+            var nik = $("#nik_kepala_keluarga").val();
+            $.ajax({
+                url: '/autofill/' + nik,
+                data: "nik=" + nik,
+            }).success(function(data) {
+                var json = data,
+                    obj = JSON.parse(json);
+                $('#nik_kepala_keluarga').val(obj.nik);
+                $('#nama_kepala_keluarga').val(obj.nama_lengkap);
+                $('#no_kk').val(obj.no_kk);
+                $('#alamat').val(obj.alamat);
+                document.getElementById("nik-danger").style.visibility = "hidden";
+                var result = confirm("Data berhasil ditemukan !");
+            }).error(function(data) {
+                document.getElementById("nik-danger").style.visibility = "visible";
+            });
+        }
+
+        function isi_otomatis_pemohon() {
+            var nik = $("#nik_pemohon").val();
+            $.ajax({
+                url: '/autofill/' + nik,
+                data: "nik=" + nik,
+            }).success(function(data) {
+                var json = data,
+                    obj = JSON.parse(json);
+                $('#nik_pemohon').val(obj.nik);
+                $('#nama_lengkap').val(obj.nama_lengkap);
+                document.getElementById("nik-danger").style.visibility = "hidden";
+                var result = confirm("Data berhasil ditemukan !");
+            }).error(function(data) {
+                document.getElementById("nik-danger").style.visibility = "visible";
+            });
+        }
     </script>
 @endsection

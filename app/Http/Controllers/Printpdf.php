@@ -96,8 +96,31 @@ class Printpdf extends Controller
     }
 
 
-    public function printpindah($id)
+    public function printPindahan($id)
     {
+        $pindah = surat_pindah::findOrFail($id);
+
+        if($this->pejabat_penandatangan=$pindah->pejabat_penandatangan == "kepala desa"){
+            $pejabat = "KEPALA DESA";
+            $nama_pejabat = "IBNU WIYANTO";
+        }else{
+            $pejabat = "SEKRETARIS DESA";
+            $nama_pejabat = "Dra. PARSINI";
+        }
+
+        if(str_contains($alamat = $this->alamat=$pindah->alamat, 'DESA NGASINAN')){
+            $dukuh = str_replace(", DESA NGASINAN","",$alamat);
+        }
+        else if(str_contains($alamat = $this->alamat=$pindah->alamat, 'ngasinan')){
+            $dukuh = str_replace(", ngasinan","",$alamat);
+        }
+        else if(str_contains($alamat = $this->alamat=$pindah->alamat, 'desa ngasinan')){
+            $dukuh = str_replace(", desa ngasinan","",$alamat);
+        }
+        else if(str_contains($alamat = $this->alamat=$pindah->alamat, 'NGASINAN')){
+            $dukuh = str_replace(", DESA NGASINAN","",$alamat);
+        }
+
         $bulan = array (1 =>   'Januari',
         'Februari',
         'Maret',
@@ -112,37 +135,33 @@ class Printpdf extends Controller
         'Desember'
         );
 
-        //TANGGAL LAHIR
-        $pindah = surat_pindah::findOrFail($id);
-
-
-        //CREATED AT
         $created_at = date("Y-m-d", strtotime($this->created_at=$pindah->created_at,));
         $split = explode('-', $created_at );
         $created_at = $split[2] . ' ' . $bulan[ (int)$split[1] ] . ' ' . $split[0];
 
-        //TAMBAH BULAN
-        $bulan_akhir = $this->created_at=$pindah->created_at;
-        $bulan_akhir = DateTime::createFromFormat('Y-m-d', $bulan_akhir);
-        $bulan_akhir->modify('+1 month');
-        $bulan_akhir = $bulan_akhir->format('Y-m-d');
-        $bulan_akhir = date("Y-m-d", strtotime($bulan_akhir));
-        $split = explode('-', $bulan_akhir );
-        $bulan_akhir = $split[2] . ' ' . $bulan[ (int)$split[1] ] . ' ' . $split[0];
-
-        //pejabat penandatangan
-        if($this->pejabat_penandatangan=$pindah->pejabat_penandatangan == "kepala desa"){
-            $pejabat = "KEPALA DESA";
-            $nama_pejabat = "IBNU WIYANTO";
-        }else{
-            $pejabat = "SEKRETARIS DESA";
-            $nama_pejabat = "Dra. PARSINI";
-        }
-
         $data = [
-            $pengantar = surat_pengantar::findOrFail($id),
-            "id" => $this->id=$pengantar->id,
+            $pengantar = surat_pindah::findOrFail($id),
             "nik_kepala_keluarga" => $this->nik_kepala_keluarga = $pengantar->nik_kepala_keluarga,
+            "no_kk" => $this->no_kk = $pengantar->no_kk,
+            "nama_kepala_keluarga" => $this->nama_kepala_keluarga=$pengantar->nama_kepala_keluarga,
+            "alamat" => $this->alamat = $pengantar->alamat,
+            "nik_pemohon" => $this->nik_pemohon = $pengantar->nik_pemohon,
+            "nama_lengkap" => $this->nama_lengkap = $pengantar->nama_lengkap,
+            "telepon" => $this->telepon=$pengantar->telepon,
+            "no_surat" => $this->no_surat = $pengantar->no_surat,
+            "alasan" => $this->alasan=$pengantar->alasan,
+            "alamat_tujuan" => $this->alamat_tujuan = $pengantar->alamat_tujuan,
+            "jenis_kepindahan" => $this->jenis_kepindahan=$pengantar->jenis_kepindahan,
+            "status_kk_tidak_pindah" => $this->status_kk_tidak_pindah = $pengantar->status_kk_tidak_pindah,
+            "status_kk_pindah" => $this->status_kk_pindah=$pengantar->status_kk_pindah,
+            // "tanggal_berlaku" => $tanggal_berlaku,
+            // "bulan_akhir" => $bulan_akhir,
+            "pejabat" => $pejabat,
+            "nama_pejabat" => $nama_pejabat,
+
+            "dukuh" => $dukuh,
+
+            "created_at" => $created_at,
 
         ];
 
@@ -153,12 +172,14 @@ class Printpdf extends Controller
 
 
 
-        $filename ="Surat Pindah" . $data['nik'].".pdf";
+        $filename ="Surat Pindah " . $data['nama_lengkap'].".pdf";
 
 
 
-        // $pdfContent = PDF::loadView('print.pengantar',$data)->output();
-        $pdf = PDF::loadView('print.pengantar', $data);
-        return $pdf->stream($filename);
+        $pdfContent = PDF::loadView('print.pindah',$data)->output();
+        return response()->streamDownload(
+        fn () => print($pdfContent),
+        "$filename"
+        );
     }
 }

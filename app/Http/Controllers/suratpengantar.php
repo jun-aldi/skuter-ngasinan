@@ -27,7 +27,6 @@ class suratpengantar extends Controller
                     return $btn;
                 })
                 ->addColumn('lihatpdf', function ($data) {
-
                     $url_download_file = route('printPengantar', $data->id);
                     return view('print.download-pengantar')->with('url_download_file', $url_download_file)->render();
                 })

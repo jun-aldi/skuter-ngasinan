@@ -1,3 +1,3 @@
 <form method="post" action="{{$url_download_file}}">
     @csrf
-    <button class="btn btn-warning mx-2">Print</button>
+    <button class="btn btn-warning mx-2 text-white">Print</button>

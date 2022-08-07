@@ -15,9 +15,10 @@ class suratPindah extends Controller
      */
     public function index(Request $request)
     {
+
         if ($request->ajax()) {
             $data = surat_pindah::select(['id', 'no_kk', 'created_at', 'nama_kepala_keluarga','nik_pemohon', 'nama_lengkap']);
-            return DataTables::of($data)
+            return Datatables::of($data)
                 ->addIndexColumn()
                 ->addColumn('action', function ($data) {
                     $btn = ' <a href="javascript:void(0)" data-toggle="tooltip" data-id="' . $data->id . '" data-original-title="Delete" class="btn btn-danger btn-sm deletePindah text-white ">Delete</a>';
@@ -25,13 +26,13 @@ class suratPindah extends Controller
                     return $btn;
                 })
                 ->addColumn('lihatpdf', function ($data) {
-
-                    $url_download_file = route('printPengantar', $data->id);
+                    $url_download_file = route('printPindahan', $data->id);
                     return view('print.download-pengantar')->with('url_download_file', $url_download_file)->render();
                 })
                 ->rawColumns(['action','lihatpdf'])
                 ->make(true);
         }
+
         return view('surat.surat-pindah');
     }
 
@@ -88,6 +89,9 @@ class suratPindah extends Controller
             'status_kk_pindah' => $request->status_kk_pindah,
             'pejabat_penandatangan' => $request->pejabat_penandatangan,
         ]);
+
+
+        return response()->json(['success' => 'Data berhasil disimpan.']);
     }
 
     /**
