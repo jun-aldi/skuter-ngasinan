@@ -112,6 +112,13 @@
                         @enderror
                     </div>
                     <div class="form-group">
+                        <label for="pukul_meninggal">Pukul Meninggal</label>
+                        <input type="time" class="form-control" name="pukul_meninggal" id="pukul_meninggal" placeholder="31-12-1969">
+                        @error('pukul_meninggal')
+                            <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
+                        @enderror
+                    </div>
+                    <div class="form-group">
                         <label for="sebab_meninggal">Sebab Meninggal</label>
                         <select class="form-control" name="sebab_meninggal" id="sebab_meninggal">
                             <option value="sakit">Sakit Biasa / Tua</option>

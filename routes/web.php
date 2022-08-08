@@ -52,6 +52,7 @@ Route::middleware([
     //print
     Route::post('/pengantarPDF/{id}', [Printpdf::class, 'printPengantar'])->name('printPengantar');
     Route::post('/pindahanPDF/{id}', [Printpdf::class, 'printPindahan'])->name('printPindahan');
+    Route::post('/kematianPDF/{id}', [Printpdf::class, 'printKematian'])->name('printKematian');
 
     //autofill
     Route::get('/autofill/{nik}', [suratpengantarform::class, 'autofill'])->name('autofill');

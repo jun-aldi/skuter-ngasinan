@@ -24,6 +24,7 @@ class surat_kematian extends Model
         'status_anak_meninggal',
         'tempat_meinggal',
         'tanggal_meninggal',
+        'pukul_meninggal',
         'sebab_meninggal',
         'yang_menerangkan',
         'bukti_kematian',

@@ -50,6 +50,7 @@ class suratKematianForm extends Controller
             'status_anak_meninggal' => 'required',
             'tempat_meninggal' => 'required',
             'tanggal_meninggal' => 'required',
+            'pukul_meninggal' => 'required',
             'sebab_meninggal' => 'required',
             'yang_menerangkan' => 'required',
             'bukti_kematian' => 'required',
@@ -106,6 +107,7 @@ class suratKematianForm extends Controller
         $surat->status_anak_meninggal = $request->status_anak_meninggal;
         $surat->tempat_meninggal = $request->tempat_meninggal;
         $surat->tanggal_meninggal = $request->tanggal_meninggal;
+        $surat->pukul_meninggal = $request->pukul_meninggal;
         $surat->sebab_meninggal = $request->sebab_meninggal;
         $surat->yang_menerangkan = $request->yang_menerangkan;
         $surat->bukti_kematian = $request->bukti_kematian;

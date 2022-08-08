@@ -15,6 +15,8 @@ class suratKematian extends Controller
      */
     public function index(Request $request)
     {
+
+
         if ($request->ajax()) {
             $data = surat_kematian::select(['id', 'nik_meninggal', 'created_at', 'tanggal_meninggal','no_surat', 'sebab_meninggal']);
             return Datatables::of($data)
@@ -25,8 +27,7 @@ class suratKematian extends Controller
                     return $btn;
                 })
                 ->addColumn('lihatpdf', function ($data) {
-
-                    $url_download_file = route('printPengantar', $data->id);
+                    $url_download_file = route('printKematian', $data->id);
                     return view('print.download-pengantar')->with('url_download_file', $url_download_file)->render();
                 })
                 ->rawColumns(['action','lihatpdf'])
