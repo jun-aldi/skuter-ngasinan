@@ -6,28 +6,23 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class surat_kematian extends Model
+class surat_kelahiran extends Model
 {
+
     use HasFactory, SoftDeletes;
 
     protected $fillable = [
         'no_surat',
-        'nik_meninggal',
-        'nama_lengkap_meninggal',
-        'jenis_kelamin_meninggal',
-        'tempat_lahir_meninggal',
-        'tanggal_lahir_meninggal',
-        'agama_meninggal',
-        'pekerjaan_meninggal',
-        'alamat_meninggal',
-        'no_kk_meninggal',
-        'status_anak_meninggal',
-        'tempat_meninggal',
-        'tanggal_meninggal',
-        'pukul_meninggal',
-        'sebab_meninggal',
-        'yang_menerangkan',
-        'bukti_kematian',
+        'nama_lengkap_anak',
+        'jenis_kelamin_anak',
+        'tempat_dilahirkan',
+        'tanggal_lahir_anak',
+        'jam_lahir_anak',
+        'jenis_kelahiran',
+        'kelahiran_ke',
+        'pertolongan_kelahiran',
+        'berat_bayi',
+        'panjang_bayi',
         'pejabat_penandatangan',
 
         //ayah
@@ -50,7 +45,6 @@ class surat_kematian extends Model
         'tanggal_lahir_pelapor',
         'pekerjaan_pelapor',
         'alamat_pelapor',
-        'hubungan_pelapor',
 
         //saksi
         'nik_saksi_1',

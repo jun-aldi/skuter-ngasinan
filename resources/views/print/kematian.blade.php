@@ -20,6 +20,10 @@
       p.surat {
     margin-left: 15rem;
 }
+.page-2 {
+    border: 2px solid black;
+    padding: 2px 2px 9px 4px;
+}
 p.pengantar {
     margin-left: 25rem;
 }
@@ -57,6 +61,9 @@ p.tujuan {
 p.ket-lain {
     margin-top: -27px;
     padding-left: 11.6rem;
+}
+.page-break {
+    page-break-after: always;
 }
     </style>
   </head>
@@ -102,7 +109,7 @@ p.ket-lain {
           <p>Umur &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: {{$umur_pelapor}} Tahun</p>
           <p>Pekerjaan &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: {{$pekerjaan_pelapor}}</p>
           <p>Tempat Tinggal &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: {{$alamat_pelapor}}</p>
-          <p>Hubungan dengan yang mati : Anak</p>
+          <p>Hubungan dengan yang mati : {{ucfirst($hubungan_pelapor)}}</p>
         <br>
           <p>Melaporkan bahwa </p>
           <p>Nama Lengkap &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: {{$nama_lengkap_meninggal}}</p>
@@ -118,10 +125,10 @@ p.ket-lain {
           <p>Telah meninggal dunia pada</p>
           <p>Hari &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: {{$hari_meninggal}}</p>
           <p>Tanggal Kematian &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: {{$tanggal_kematian}}</p>
-          <p>Pukul &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: {{$pukul_meninggal}} WIB</p>
-          <p>Bertempat di &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: {{$tempat_meninggal}}</p>
-          <p>Penyebab Kematian &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: {{$sebab_meninggal}}</p>
-          <p>Bukti Kematian &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: {{$bukti_kematian}}</p>
+          <p>Pukul &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: {{date($pukul_meninggal)}} WIB</p>
+          <p>Bertempat di &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: {{ucfirst($tempat_meninggal)}}</p>
+          <p>Penyebab Kematian &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: {{ ucfirst($sebab_meninggal)}}</p>
+          <p>Bukti Kematian &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: {{ucfirst($bukti_kematian)}}</p>
         </div>
 
 
@@ -145,5 +152,102 @@ p.ket-lain {
       </div>
 
     </div>
+
+    <div class="page-break"></div>
+    <div class="header" style="font-size: small;line-height: 10%;" >
+        <div class="right">
+            <p class="ket">Ket :</p>
+            <div class="lembar" style="margin-left: 400px">
+                <p>Lembar 1 Untuk Yang Bersangkutan</p>
+                <p>Lembar 2 Untuk UPTD/Instansi Pelaksana</p>
+                <p>Lembar 3 Untuk Desa atau Kelurahan</p>
+                <p>Lembar 4 Untuk Kecamatan</p>
+            </div>
+        </div>
+        <div class="left" style="text-align: left;margin-top: -80px;">
+            <p>Pemerintah Desa / Kelurahan : Ngasinan</p>
+            <p>Kecamatan &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: Bulu</p>
+            <p>Kabupaten / Kota&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: Sukoharjo</p>
+            <p>Kode Wilayah &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: 33 11 022012</p>
+        </div>
+    </div>
+    <div class="judul" style="text-align: center;">
+        <h4>SURAT KETERANGAN KEMATIAN</h4>
+    </div>
+    <div class="nomer-2" style="text-align: center;margin-top: -40px">
+        <p>No. : {{$no_surat}}</p>
+    </div>
+    <div class="no_kk_kk" style="font-size: 60%;line-height: 10%;margin-top: -10px;">
+        {{-- <p>Nama Kepala Keluarga &nbsp;&nbsp;: tes</p> --}}
+        <p>Nomor Kepala Keluarga : {{$no_kk_meninggal}}</p>
+    </div>
+    <div class="page-2" style="font-size: 70%;line-height: 20%">
+        <div class="identitas">
+            <p style="font-weight: bold">JENAZAH</p>
+            <p>1. NIK &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: {{strtoupper($nik_meninggal)}}</p>
+            <p>2. Nama Lengkap &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : {{strtoupper($nama_lengkap_meninggal)}}</p>
+            <p>3. Jenis Kelamin &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: {{strtoupper($jenis_kelamin_meninggal)}}</p>
+            <p>4. Tanggal lahir / Umur &nbsp;&nbsp;&nbsp;: {{$tanggal_lahir_meninggal}} / {{$umur_meninggal}} TAHUN</p>
+            <p>5. Tempat lahir &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: {{strtoupper($tempat_lahir_meninggal)}}</p>
+            <p>6. Agama &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: {{strtoupper($agama_meninggal)}}</p>
+            <p>7. Pekerjaan &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: {{strtoupper($pekerjaan_meninggal)}}</p>
+            <p>8. Alamat &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: {{strtoupper($alamat_meninggal)}}</p>
+            <p>9. Anak Ke&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: {{strtoupper($status_anak_meninggal)}}</p>
+            <p>10. Tanggal Kematian&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: {{strtoupper($tanggal_kematian)}}</p>
+            <p>11. Pukul &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: PUKUL {{$pukul_meninggal}} WIB</p>
+            <p>12. Sebab Kematian &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: {{strtoupper($sebab_meninggal)}}</p>
+            <p>13. Tempat Kematian &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: {{strtoupper($tempat_meninggal)}}</p>
+            <p>14. Yang Menerangkan &nbsp;&nbsp;&nbsp;: LAINNYA</p>
+        </div>
+        <div class="identitas">
+            <p style="font-weight: bold">AYAH</p>
+            <p>1. NIK &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: {{$nik_ayah}}</p>
+            <p>2. Nama Lengkap &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : {{strtoupper($nama_ayah)}}</p>
+            <p>3. Tanggal Lahir &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: {{strtoupper($tgl_ayah)}}</p>
+            <p>4. Pekerjaan &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: {{strtoupper($pekerjaan_ayah)}}</p>
+            <p>5. Alamat &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: {{strtoupper($alamat_ayah)}}</p>
+        </div>
+        <div class="identitas">
+            <p style="font-weight: bold">IBU</p>
+            <p>1. NIK &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: {{strtoupper($nik_ibu)}}</p>
+            <p>2. Nama Lengkap &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : {{strtoupper($nama_ibu)}}</p>
+            <p>3. Tanggal Lahir &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: {{strtoupper($tgl_ibu)}}</p>
+            <p>4. Pekerjaan  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: {{strtoupper($pekerjaan_ibu)}}</p>
+            <p>5. Alamat &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: {{strtoupper($alamat_ibu)}}</p>
+        </div>
+        <div class="identitas">
+            <p style="font-weight: bold">PELAPOR</p>
+            <p>1. NIK &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: {{$nik_pelapor}}</p>
+            <p>2. Nama Lengkap &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: {{strtoupper($nama_pelapor)}}</p>
+            <p>3. Tanggal Lahir &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: {{strtoupper($tgl_pelapor)}}</p>
+            <p>4. Pekerjaan &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: {{strtoupper($pekerjaan_pelapor)}}</p>
+            <p>5. Alamat &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: {{strtoupper($alamat_pelapor)}}</p>
+        </div>
+        <div class="identitas">
+            <p style="font-weight: bold">SAKSI 1</p>
+            <p>1. NIK &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: {{$nik_saksi_1}}</p>
+            <p>2. Nama Lengkap &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: {{strtoupper($nama_saksi_1)}}</p>
+            <p>3. Tanggal Lahir &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: {{strtoupper($tgl_saksi_1)}}</p>
+            <p>4. Pekerjaan &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: {{strtoupper($pekerjaan_saksi_1)}}</p>
+            <p>5. Alamat &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: {{strtoupper($alamat_saksi_1)}}</p>
+        </div>
+        <div class="identitas">
+            <p style="font-weight: bold">SAKSI 2</p>
+            <p>1. NIK &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: {{$nik_saksi_2}}</p>
+            <p>2. Nama Lengkap &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: {{strtoupper($nama_saksi_2)}}</p>
+            <p>3. Tanggal Lahir &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: {{strtoupper($tgl_saksi_2)}}</p>
+            <p>4. Pekerjaan &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: {{strtoupper($pekerjaan_saksi_2)}}</p>
+            <p>5. Alamat &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: {{strtoupper($alamat_saksi_2)}}</p>
+        </div>
+    </div>
+
+    <p style="text-align: right;font-size: 70%">Ngasinan, {{$created_at}}</p>
+    <br>
+    <p class="kepala-desa" style="font-size: 70%;;margin-left: 5rem;">{{$pejabat}}</p>
+    <br>
+    <br>
+    <br>
+    <p class="namakepala" style="margin-top: 10px;margin-left: 7.5rem;font-size:70%">{{$nama_pejabat}}</p>
+
   </body>
 </html>

@@ -3,10 +3,10 @@
 namespace App\Http\Controllers\form;
 
 use App\Http\Controllers\Controller;
-use App\Models\surat_kematian;
+use App\Models\surat_kelahiran;
 use Illuminate\Http\Request;
 
-class suratKematianForm extends Controller
+class suratkelahiranform extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +15,7 @@ class suratKematianForm extends Controller
      */
     public function index()
     {
-        return view('form.surat-kematian-form');
+        return view('form.surat-kelahiran-form');
     }
 
     /**
@@ -37,23 +37,17 @@ class suratKematianForm extends Controller
     public function store(Request $request)
     {
         $validatedData = $request->validate([
-            'nik_meninggal' => 'required|max:16',
             'no_surat' => 'required',
-            'nama_lengkap_meninggal' => 'required',
-            'tempat_lahir_meninggal' => 'required',
-            'tanggal_lahir_meninggal' => 'required',
-            'jenis_kelamin_meninggal' => 'required',
-            'agama_meninggal' => 'required',
-            'pekerjaan_meninggal' => 'required',
-            'alamat_meninggal' => 'required',
-            'no_kk_meninggal' => 'required',
-            'status_anak_meninggal' => 'required',
-            'tempat_meninggal' => 'required',
-            'tanggal_meninggal' => 'required',
-            'pukul_meninggal' => 'required',
-            'sebab_meninggal' => 'required',
-            'yang_menerangkan' => 'required',
-            'bukti_kematian' => 'required',
+            'nama_lengkap_anak' => 'required',
+            'jenis_kelamin_anak' => 'required',
+            'tempat_dilahirkan' => 'required',
+            'tanggal_lahir_anak' => 'required',
+            'jam_lahir_anak' => 'required',
+            'jenis_kelahiran' => 'required',
+            'kelahiran_ke' => 'required',
+            'pertolongan_kelahiran' => 'required',
+            'berat_bayi' => 'required',
+            'panjang_bayi' => 'required',
             'pejabat_penandatangan' => 'required',
 
             //ayah
@@ -76,7 +70,7 @@ class suratKematianForm extends Controller
             'tanggal_lahir_pelapor' => 'required',
             'pekerjaan_pelapor' => 'required',
             'alamat_pelapor' => 'required',
-            'hubungan_pelapor' => 'required',
+
 
             //saksi
             'nik_saksi_1' => 'required|max:16',
@@ -93,25 +87,19 @@ class suratKematianForm extends Controller
             'alamat_saksi_2' => 'required',
         ]);
 
-        $surat = new surat_kematian();
+        $surat = new surat_kelahiran();
 
-        $surat->nik_meninggal = $request->nik_meninggal;
         $surat->no_surat = $request->no_surat;
-        $surat->nama_lengkap_meninggal = $request->nama_lengkap_meninggal;
-        $surat->tempat_lahir_meninggal = $request->tempat_lahir_meninggal;
-        $surat->tanggal_lahir_meninggal = $request->tanggal_lahir_meninggal;
-        $surat->jenis_kelamin_meninggal = $request->jenis_kelamin_meninggal;
-        $surat->agama_meninggal = $request->agama_meninggal;
-        $surat->pekerjaan_meninggal = $request->pekerjaan_meninggal;
-        $surat->alamat_meninggal = $request->alamat_meninggal;
-        $surat->no_kk_meninggal = $request->no_kk_meninggal;
-        $surat->status_anak_meninggal = $request->status_anak_meninggal;
-        $surat->tempat_meninggal = $request->tempat_meninggal;
-        $surat->tanggal_meninggal = $request->tanggal_meninggal;
-        $surat->pukul_meninggal = $request->pukul_meninggal;
-        $surat->sebab_meninggal = $request->sebab_meninggal;
-        $surat->yang_menerangkan = $request->yang_menerangkan;
-        $surat->bukti_kematian = $request->bukti_kematian;
+        $surat->nama_lengkap_anak = $request->nama_lengkap_anak;
+        $surat->jenis_kelamin_anak = $request->jenis_kelamin_anak;
+        $surat->tempat_dilahirkan = $request->tempat_dilahirkan;
+        $surat->tanggal_lahir_anak = $request->tanggal_lahir_anak;
+        $surat->jam_lahir_anak = $request->jam_lahir_anak;
+        $surat->jenis_kelahiran = $request->jenis_kelahiran;
+        $surat->kelahiran_ke = $request->kelahiran_ke;
+        $surat->pertolongan_kelahiran = $request->pertolongan_kelahiran;
+        $surat->berat_bayi = $request->berat_bayi;
+        $surat->panjang_bayi = $request->panjang_bayi;
         $surat->pejabat_penandatangan = $request->pejabat_penandatangan;
 
         //ayah
@@ -134,7 +122,6 @@ class suratKematianForm extends Controller
         $surat->tanggal_lahir_pelapor = $request->tanggal_lahir_pelapor;
         $surat->pekerjaan_pelapor = $request->pekerjaan_pelapor;
         $surat->alamat_pelapor = $request->alamat_pelapor;
-        $surat->hubungan_pelapor = $request->hubungan_pelapor;
 
         //saksi
         $surat->nik_saksi_1 = $request->nik_saksi_1;
@@ -152,7 +139,9 @@ class suratKematianForm extends Controller
 
         $surat->save();
 
-        return redirect('/suratkematian')->with('status', 'Form Data Has Been Inserted');
+        return redirect('/suratkelahiranform')->with('status', 'Form Data Has Been Inserted');
+
+
     }
 
     /**

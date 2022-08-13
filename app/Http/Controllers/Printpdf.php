@@ -201,8 +201,6 @@ class Printpdf extends Controller
         }
 
 
-
-
         $bulan = array(
             1 =>   'Januari',
             'Februari',
@@ -226,10 +224,10 @@ class Printpdf extends Controller
             'Thursday' => 'Kamis',
             'Friday' => 'Jumat',
             'Saturday' => 'Sabtu'
-           );
-           $hari_meninggal=$this->tanggal_meninggal= $kematian->tanggal_meninggal;
-           $namahari = date('l', strtotime($hari_meninggal));
-           $namahari = $daftar_hari[$namahari];
+        );
+        $hari_meninggal = $this->tanggal_meninggal = $kematian->tanggal_meninggal;
+        $namahari = date('l', strtotime($hari_meninggal));
+        $namahari = $daftar_hari[$namahari];
 
         $created_at = date("Y-m-d", strtotime($this->created_at = $kematian->created_at,));
         $split = explode('-', $created_at);
@@ -249,7 +247,7 @@ class Printpdf extends Controller
 
         //umur meninggal
         $tanggal_lahir = new DateTime($this->tanggal_lahir_meninggal = $kematian->tanggal_lahir_meninggal);
-        $sekarang = new DateTime("today");
+        $sekarang = new DateTime($kematian->tanggal_meninggal);
         if ($tanggal_lahir > $sekarang) {
             $thn = "0";
             $bln = "0";
@@ -264,10 +262,38 @@ class Printpdf extends Controller
         $split = explode('-', $tanggal_kematian);
         $tanggal_kematian = $split[2] . ' ' . $bulan[(int)$split[1]] . ' ' . $split[0];
 
-        // tanggal kematian
-        $tanggal_lahir_meninggal = date("Y-m-d", strtotime($this->tanggal_meninggal = $kematian->tanggal_meninggal,));
+        // tanggal LAHIR KEMATIAN
+        $tanggal_lahir_meninggal = date("Y-m-d", strtotime($this->tanggal_lahir_meninggal = $kematian->tanggal_lahir_meninggal,));
         $split = explode('-', $tanggal_lahir_meninggal);
         $tanggal_lahir_meninggal = $split[2] . ' ' . $bulan[(int)$split[1]] . ' ' . $split[0];
+
+        //pukul meninggal
+        $waktu_meninggal = date('h:i', $this->waktu_meninggal = $kematian->waktu_meninggal);
+
+        //tanggal LAHIR AYAH
+        $tanggal_lahir_ayah = date("Y-m-d", strtotime($this->tanggal_ayah = $kematian->tanggal_ayah,));
+        $split = explode('-', $tanggal_lahir_ayah);
+        $tanggal_lahir_ayah = $split[2] . ' ' . $bulan[(int)$split[1]] . ' ' . $split[0];
+
+        //tanggal LAHIR AYAH
+        $tanggal_lahir_ibu = date("Y-m-d", strtotime($this->tanggal_ibu = $kematian->tanggal_ibu,));
+        $split = explode('-', $tanggal_lahir_ibu);
+        $tanggal_lahir_ibu = $split[2] . ' ' . $bulan[(int)$split[1]] . ' ' . $split[0];
+
+        //tanggal LAHIR pelapor
+        $tanggal_lahir_pelapor = date("Y-m-d", strtotime($this->tanggal_pelapor = $kematian->tanggal_pelapor,));
+        $split = explode('-', $tanggal_lahir_pelapor);
+        $tanggal_lahir_pelapor = $split[2] . ' ' . $bulan[(int)$split[1]] . ' ' . $split[0];
+
+        //tanggal LAHIR AYAH
+        $tanggal_lahir_saksi_1 = date("Y-m-d", strtotime($this->tanggal_saksi_1 = $kematian->tanggal_saksi_1,));
+        $split = explode('-', $tanggal_lahir_saksi_1);
+        $tanggal_lahir_saksi_1 = $split[2] . ' ' . $bulan[(int)$split[1]] . ' ' . $split[0];
+
+        //tanggal LAHIR AYAH
+        $tanggal_lahir_saksi_2 = date("Y-m-d", strtotime($this->tanggal_saksi_2 = $kematian->tanggal_saksi_2,));
+        $split = explode('-', $tanggal_lahir_saksi_2);
+        $tanggal_lahir_saksi_2 = $split[2] . ' ' . $bulan[(int)$split[1]] . ' ' . $split[0];
 
         $data = [
             $pengantar = surat_kematian::findOrFail($id),
@@ -283,13 +309,13 @@ class Printpdf extends Controller
             "no_kk_meninggal" => $this->no_kk_meninggal = $pengantar->no_kk_meninggal,
             "status_anak_meninggal" => $this->status_anak_meninggal = $pengantar->status_anak_meninggal,
             "tempat_meninggal" => $this->tempat_meninggal = $pengantar->tempat_meninggal,
-            "pukul_meninggal" => $this->pukul_meninggal = $pengantar->pukul_meninggal,
+            "pukul_meninggal" => $waktu_meninggal,
             "sebab_meninggal" => $this->sebab_meninggal = $pengantar->sebab_meninggal,
             "yang_menerangkan" => $this->yang_menerangkan = $pengantar->yang_menerangkan,
             "bukti_kematian" => $this->bukti_kematian = $pengantar->bukti_kematian,
             "status_anak_meninggal" => $this->status_anak_meninggal = $pengantar->status_anak_meninggal,
 
-            //ayah
+            //saksi ayah
             "nik_ayah" => $this->nik_ayah = $pengantar->nik_ayah,
             "nama_ayah" => $this->nama_ayah = $pengantar->nama_ayah,
             "tanggal_lahir_ayah" => $this->tanggal_lahir_ayah = $pengantar->tanggal_lahir_ayah,
@@ -312,6 +338,7 @@ class Printpdf extends Controller
             "tanggal_lahir_pelapor" => $this->tanggal_lahir_pelapor = $pengantar->tanggal_lahir_pelapor,
             "pekerjaan_pelapor" => $this->pekerjaan_pelapor = $pengantar->pekerjaan_pelapor,
             "alamat_pelapor" => $this->alamat_pelapor = $pengantar->alamat_pelapor,
+            "hubungan_pelapor" => $this->hubungan_pelapor = $pengantar->hubungan_pelapor,
 
             //saksi
             "nik_saksi_1" => $this->nik_saksi_1 = $pengantar->nik_saksi_1,
@@ -341,6 +368,16 @@ class Printpdf extends Controller
 
             "umur_pelapor" => $thn,
             "umur_meninggal" => $thnmeninggal,
+
+            "pejabat" => $pejabat,
+            "nama_pejabat" => $nama_pejabat,
+
+            "tgl_ayah" => $tanggal_lahir_ayah,
+            "tgl_ibu" => $tanggal_lahir_ibu,
+            "tgl_pelapor" => $tanggal_lahir_pelapor,
+            "tgl_saksi_1" => $tanggal_lahir_saksi_1,
+            "tgl_saksi_2" => $tanggal_lahir_saksi_2,
+
 
         ];
 
