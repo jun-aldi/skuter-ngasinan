@@ -12,6 +12,8 @@ class surat_kematian extends Model
 
     protected $fillable = [
         'no_surat',
+        'no_kk',
+        'nama_kk',
         'nik_meninggal',
         'nama_lengkap_meninggal',
         'jenis_kelamin_meninggal',

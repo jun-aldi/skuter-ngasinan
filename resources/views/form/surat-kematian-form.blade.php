@@ -18,15 +18,31 @@
                     {{ csrf_field() }}
                     <div class="form-group">
                         <label for="no_surat">Nomor Surat</label>
-                        <input type="text" class="form-control" name="no_surat" id="no_surat"
+                        <input required type="text" class="form-control" name="no_surat" id="no_surat"
                             placeholder="Masukan Nomor Surat">
                         @error('no_surat')
                             <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
                         @enderror
                     </div>
                     <div class="form-group">
+                        <label for="no_kk">Nomor KK</label>
+                        <input required type="text" class="form-control" name="no_kk" id="no_kk"
+                            placeholder="Masukan Nomor Surat">
+                        @error('no_kk')
+                            <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
+                        @enderror
+                    </div>
+                    <div class="form-group">
+                        <label for="nama_kk">Nama Kepala Keluarga</label>
+                        <input required type="text" class="form-control" name="nama_kk" id="nama_kk"
+                            placeholder="Masukan Nomor Surat">
+                        @error('nama_kk')
+                            <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
+                        @enderror
+                    </div>
+                    <div class="form-group">
                         <label for="nik_meninggal">NIK Warga Meninggal</label>
-                        <input onkeyup="isi_otomatis_meninggal()" type="text" class="form-control" name="nik_meninggal"
+                        <input required onkeyup="isi_otomatis_meninggal()" type="text" class="form-control" name="nik_meninggal"
                             id="nik_meninggal" placeholder="Masukan NIK Meninggal">
                         @error('nik_meninggal')
                             <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
@@ -34,7 +50,7 @@
                     </div>
                     <div class="form-group">
                         <label for="nama_lengkap_meninggal">Nama Lengkap</label>
-                        <input type="text" class="form-control" name="nama_lengkap_meninggal" id="nama_lengkap_meninggal"
+                        <input required type="text" class="form-control" name="nama_lengkap_meninggal" id="nama_lengkap_meninggal"
                             placeholder="Masukan Nama Lengkap">
                         @error('nama_lengkap_meninggal')
                             <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
@@ -52,7 +68,7 @@
                     </div>
                     <div class="form-group">
                         <label for="tempat_lahir_meninggal">Tempat Lahir</label>
-                        <input type="text" class="form-control" name="tempat_lahir_meninggal" id="tempat_lahir_meninggal"
+                        <input required type="text" class="form-control" name="tempat_lahir_meninggal" id="tempat_lahir_meninggal"
                             placeholder="Masukan Tempat Lahir">
                         @error('tempat_lahir_meninggal')
                             <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
@@ -60,7 +76,7 @@
                     </div>
                     <div class="form-group">
                         <label for="tanggal_lahir_meninggal">Tanggal Lahir</label>
-                        <input type="date" class="form-control" name="tanggal_lahir_meninggal"
+                        <input required type="date" class="form-control" name="tanggal_lahir_meninggal"
                             id="tanggal_lahir_meninggal" placeholder="31-12-1969">
                         @error('tanggal_lahir_meninggal')
                             <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
@@ -82,7 +98,7 @@
                     </div>
                     <div class="form-group">
                         <label for="pekerjaan_meninggal">Pekerjaan</label>
-                        <input type="text" name="pekerjaan_meninggal" class="form-control" id="pekerjaan_meninggal"
+                        <input required type="text" name="pekerjaan_meninggal" class="form-control" id="pekerjaan_meninggal"
                             placeholder="Masukan Pekerjaan">
                         @error('pekerjaan_meninggal')
                             <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
@@ -90,14 +106,14 @@
                     </div>
                     <div class="form-group">
                         <label for="alamat_meninggal">Alamat</label>
-                        <textarea name="alamat_meninggal" class="form-control" id="alamat_meninggal" rows="8"></textarea>
+                        <textarea required name="alamat_meninggal" class="form-control" id="alamat_meninggal" rows="8"></textarea>
                         @error('alamat_meninggal')
                             <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
                         @enderror
                     </div>
                     <div class="form-group">
                         <label for="no_kk_meninggal">No KK</label>
-                        <input name="no_kk_meninggal" type="text" class="form-control" id="no_kk_meninggal"
+                        <input required name="no_kk_meninggal" type="text" class="form-control" id="no_kk_meninggal"
                             placeholder="Masukan Nomor KK">
                         @error('no_kk_meninggal')
                             <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
@@ -105,7 +121,7 @@
                     </div>
                     <div class="form-group">
                         <label for="status_anak_meninggal">Anak Ke</label>
-                        <input type="text" class="form-control" name="status_anak_meninggal" id="status_anak_meninggal"
+                        <input required type="text" class="form-control" name="status_anak_meninggal" id="status_anak_meninggal"
                             placeholder="Status Anak Ke..">
                         @error('status_anak_meninggal')
                             <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
@@ -113,7 +129,7 @@
                     </div>
                     <div class="form-group">
                         <label for="tanggal_meninggal">Tanggal Meninggal</label>
-                        <input type="date" class="form-control" name="tanggal_meninggal" id="tanggal_meninggal"
+                        <input required type="date" class="form-control" name="tanggal_meninggal" id="tanggal_meninggal"
                             placeholder="31-12-1969">
                         @error('tanggal_meninggal')
                             <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
@@ -121,7 +137,7 @@
                     </div>
                     <div class="form-group">
                         <label for="pukul_meninggal">Pukul Meninggal</label>
-                        <input type="time" class="form-control" name="pukul_meninggal" id="pukul_meninggal"
+                        <input required type="time" class="form-control" name="pukul_meninggal" id="pukul_meninggal"
                             placeholder="31-12-1969">
                         @error('pukul_meninggal')
                             <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
@@ -143,7 +159,7 @@
                     </div>
                     <div class="form-group">
                         <label for="tempat_meninggal">Tempat Meninggal</label>
-                        <input type="text" class="form-control" name="tempat_meninggal" id="tempat_meninggal"
+                        <input required type="text" class="form-control" name="tempat_meninggal" id="tempat_meninggal"
                             placeholder="Tempat Meninggal">
                         @error('tempat_meninggal')
                             <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
@@ -163,7 +179,7 @@
                     </div>
                     <div class="form-group">
                         <label for="bukti_kematian">Bukti Kematian</label>
-                        <input type="text" class="form-control" name="bukti_kematian" id="bukti_kematian"
+                        <input required type="text" class="form-control" name="bukti_kematian" id="bukti_kematian"
                             placeholder="Bukti Meninggal">
                         @error('bukti_kematian')
                             <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
@@ -223,7 +239,7 @@
                 </div>
                 <div class="form-group">
                     <label for="alamat_ayah">Alamat Ayah</label>
-                    <textarea name="alamat_ayah" class="form-control" id="alamat_ayah" rows="8"></textarea>
+                    <textarea required name="alamat_ayah" class="form-control" id="alamat_ayah" rows="8"></textarea>
                     @error('alamat_ayah')
                         <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
                     @enderror
@@ -272,7 +288,7 @@
                 </div>
                 <div class="form-group">
                     <label for="alamat_ibu">Alamat Ibu</label>
-                    <textarea name="alamat_ibu" class="form-control" id="alamat_ibu" rows="8"></textarea>
+                    <textarea required name="alamat_ibu" class="form-control" id="alamat_ibu" rows="8"></textarea>
                     @error('alamat_ibu')
                         <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
                     @enderror
@@ -328,7 +344,7 @@
                 </div>
                 <div class="form-group">
                     <label for="alamat_pelapor">Alamat Pelapor</label>
-                    <textarea name="alamat_pelapor" class="form-control" id="alamat_pelapor" rows="8"></textarea>
+                    <textarea required name="alamat_pelapor" class="form-control" id="alamat_pelapor" rows="8"></textarea>
                     @error('alamat_pelapor')
                         <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
                     @enderror
@@ -376,7 +392,7 @@
                 </div>
                 <div class="form-group">
                     <label for="alamat_saksi_1">Alamat Saksi 1</label>
-                    <textarea name="alamat_saksi_1" class="form-control" id="alamat_saksi_1" rows="8"></textarea>
+                    <textarea required name="alamat_saksi_1" class="form-control" id="alamat_saksi_1" rows="8"></textarea>
                     @error('alamat_saksi_1')
                         <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
                     @enderror
@@ -424,7 +440,7 @@
                 </div>
                 <div class="form-group">
                     <label for="alamat_saksi_2">Alamat Saksi 2</label>
-                    <textarea name="alamat_saksi_2" class="form-control" id="alamat_saksi_2" rows="8"></textarea>
+                    <textarea required name="alamat_saksi_2" class="form-control" id="alamat_saksi_2" rows="8"></textarea>
                     @error('alamat_saksi_2')
                         <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
                     @enderror

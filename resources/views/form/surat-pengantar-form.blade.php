@@ -18,28 +18,28 @@
                     {{ csrf_field() }}
                     <div class="form-group">
                         <label for="nik">NIK Pemohon</label>
-                        <input onkeyup="isi_otomatis()" type="text" class="form-control" name="nik" id="nik" placeholder="Masukan NIK Pemohon">
+                        <input required onkeyup="isi_otomatis()" type="text" class="form-control" name="nik" id="nik" placeholder="Masukan NIK Pemohon">
                         @error('nik')
                             <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
                         @enderror
                     </div>
                     <div class="form-group">
                         <label for="nama_lengkap">Nama Lengkap</label>
-                        <input type="text" class="form-control" name="nama_lengkap" id="nama_lengkap" placeholder="Masukan Nama Lengkap">
+                        <input required type="text" class="form-control" name="nama_lengkap" id="nama_lengkap" placeholder="Masukan Nama Lengkap">
                         @error('nama_lengkap')
                             <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
                         @enderror
                     </div>
                     <div class="form-group">
                         <label for="tempat_lahir">Tempat Lahir</label>
-                        <input type="text" class="form-control" name="tempat_lahir" id="tempat_lahir" placeholder="Masukan Tempat Lahir">
+                        <input required type="text" class="form-control" name="tempat_lahir" id="tempat_lahir" placeholder="Masukan Tempat Lahir">
                         @error('tempat_lahir')
                             <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
                         @enderror
                     </div>
                     <div class="form-group">
                         <label for="tanggal_lahir">Tanggal Lahir</label>
-                        <input type="date" class="form-control" name="tanggal_lahir" id="tanggal_lahir" placeholder="31-12-1969">
+                        <input required type="date" class="form-control" name="tanggal_lahir" id="tanggal_lahir" placeholder="31-12-1969">
                         @error('tanggal_lahir')
                             <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
                         @enderror
@@ -79,7 +79,7 @@
                     </div>
                     <div class="form-group">
                         <label for="pekerjaan">Pekerjaan</label>
-                        <input type="text" name="pekerjaan" class="form-control" id="pekerjaan" placeholder="Masukan Pekerjaan">
+                        <input required type="text" name="pekerjaan" class="form-control" id="pekerjaan" placeholder="Masukan Pekerjaan">
                         @error('pekerjaan')
                             <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
                         @enderror
@@ -104,7 +104,7 @@
                     </div>
                     <div class="form-group">
                         <label for="no_kk">No KK</label>
-                        <input name="no_kk" type="text" class="form-control" id="no_kk" placeholder="Masukan Nomor KK">
+                        <input required name="no_kk" type="text" class="form-control" id="no_kk" placeholder="Masukan Nomor KK">
                         @error('no_kk')
                             <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
                         @enderror

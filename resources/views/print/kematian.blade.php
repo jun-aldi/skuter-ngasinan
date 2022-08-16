@@ -178,8 +178,8 @@ p.ket-lain {
         <p>No. : {{$no_surat}}</p>
     </div>
     <div class="no_kk_kk" style="font-size: 60%;line-height: 10%;margin-top: -10px;">
-        {{-- <p>Nama Kepala Keluarga &nbsp;&nbsp;: tes</p> --}}
-        <p>Nomor Kepala Keluarga : {{$no_kk_meninggal}}</p>
+        <p>Nama Kepala Keluarga &nbsp;&nbsp;: {{strtoupper($nama_kk)}}</p>
+        <p>Nomor Kepala Keluarga : {{$no_kk}}</p>
     </div>
     <div class="page-2" style="font-size: 70%;line-height: 20%">
         <div class="identitas">

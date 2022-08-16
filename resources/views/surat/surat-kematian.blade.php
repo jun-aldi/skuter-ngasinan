@@ -39,20 +39,30 @@
                 </div>
                 <div class="modal-body">
                     <form class="form-sample" name="editKematianForm" id="editKematianForm" method="post">
-                        <input type="hidden" id="id" name="id">
+                        <input required type="hidden" id="id" name="id">
                         <div class="form-group">
                             <label for="no_surat">Nomor Surat</label>
-                            <input type="text" class="form-control" name="no_surat" id="no_surat"
+                            <input required type="text" class="form-control" name="no_surat" id="no_surat"
+                                placeholder="Masukan Nomor Surat">
+                        </div>
+                        <div class="form-group">
+                            <label for="no_kk">Nomor Kartu Keluarga</label>
+                            <input required type="text" class="form-control" name="no_kk" id="no_kk"
+                                placeholder="Masukan Nomor Surat">
+                        </div>
+                        <div class="form-group">
+                            <label for="nama_kk">Nama Kepala Keluarga</label>
+                            <input required type="text" class="form-control" name="nama_kk" id="nama_kk"
                                 placeholder="Masukan Nomor Surat">
                         </div>
                         <div class="form-group">
                             <label for="nik_meninggal">NIK Warga Meninggal</label>
-                            <input onkeyup="isi_otomatis_meninggal()" type="text" class="form-control"
+                            <input required onkeyup="isi_otomatis_meninggal()" type="text" class="form-control"
                                 name="nik_meninggal" id="nik_meninggal" placeholder="Masukan NIK Meninggal">
                         </div>
                         <div class="form-group">
                             <label for="nama_lengkap_meninggal">Nama Lengkap</label>
-                            <input type="text" class="form-control" name="nama_lengkap_meninggal"
+                            <input required type="text" class="form-control" name="nama_lengkap_meninggal"
                                 id="nama_lengkap_meninggal" placeholder="Masukan Nama Lengkap">
                         </div>
                         <div class="form-group">
@@ -64,12 +74,12 @@
                         </div>
                         <div class="form-group">
                             <label for="tempat_lahir_meninggal">Tempat Lahir</label>
-                            <input type="text" class="form-control" name="tempat_lahir_meninggal"
+                            <input required type="text" class="form-control" name="tempat_lahir_meninggal"
                                 id="tempat_lahir_meninggal" placeholder="Masukan Tempat Lahir">
                         </div>
                         <div class="form-group">
                             <label for="tanggal_lahir_meninggal">Tanggal Lahir</label>
-                            <input type="date" class="form-control" name="tanggal_lahir_meninggal"
+                            <input required type="date" class="form-control" name="tanggal_lahir_meninggal"
                                 id="tanggal_lahir_meninggal" placeholder="31-12-1969">
                         </div>
                         <div class="form-group">
@@ -85,31 +95,31 @@
                         </div>
                         <div class="form-group">
                             <label for="pekerjaan_meninggal">Pekerjaan</label>
-                            <input type="text" name="pekerjaan_meninggal" class="form-control" id="pekerjaan_meninggal"
+                            <input required type="text" name="pekerjaan_meninggal" class="form-control" id="pekerjaan_meninggal"
                                 placeholder="Masukan Pekerjaan">
                         </div>
                         <div class="form-group">
                             <label for="alamat_meninggal">Alamat</label>
-                            <textarea name="alamat_meninggal" class="form-control" id="alamat_meninggal" rows="8"></textarea>
+                            <textarea required name="alamat_meninggal" class="form-control" id="alamat_meninggal" rows="8"></textarea>
                         </div>
                         <div class="form-group">
                             <label for="no_kk_meninggal">No KK</label>
-                            <input name="no_kk_meninggal" type="text" class="form-control" id="no_kk_meninggal"
+                            <input required name="no_kk_meninggal" type="text" class="form-control" id="no_kk_meninggal"
                                 placeholder="Masukan Nomor KK">
                         </div>
                         <div class="form-group">
                             <label for="status_anak_meninggal">Anak Ke</label>
-                            <input type="text" class="form-control" name="status_anak_meninggal"
+                            <input required type="text" class="form-control" name="status_anak_meninggal"
                                 id="status_anak_meninggal" placeholder="Status Anak Ke..">
                         </div>
                         <div class="form-group">
                             <label for="tanggal_meninggal">Tanggal Meninggal</label>
-                            <input type="date" class="form-control" name="tanggal_meninggal" id="tanggal_meninggal"
+                            <input required type="date" class="form-control" name="tanggal_meninggal" id="tanggal_meninggal"
                                 placeholder="31-12-1969">
                         </div>
                         <div class="form-group">
                             <label for="pukul_meninggal">Pukul Meninggal</label>
-                            <input type="time" class="form-control" name="pukul_meninggal" id="pukul_meninggal"
+                            <input required type="time" class="form-control" name="pukul_meninggal" id="pukul_meninggal"
                                 placeholder="31-12-1969">
                         </div>
                         <div class="form-group">
@@ -125,7 +135,7 @@
                         </div>
                         <div class="form-group">
                             <label for="tempat_meninggal">Tempat Meninggal</label>
-                            <input type="text" class="form-control" name="tempat_meninggal" id="tempat_meninggal"
+                            <input required type="text" class="form-control" name="tempat_meninggal" id="tempat_meninggal"
                                 placeholder="Status Anak Ke..">
                         </div>
                         <div class="form-group">
@@ -139,7 +149,7 @@
                         </div>
                         <div class="form-group">
                             <label for="bukti_kematian">Bukti Kematian</label>
-                            <input type="text" class="form-control" name="bukti_kematian" id="bukti_kematian"
+                            <input required type="text" class="form-control" name="bukti_kematian" id="bukti_kematian"
                                 placeholder="Bukti Meninggal">
                         </div>
                         <div class="form-group">
@@ -150,128 +160,128 @@
                             </select>
                             <div class="form-group">
                                 <label for="nik_ibu">NIK Ibu</label>
-                                <input onkeyup="isi_otomatis_ibu()" type="text" class="form-control"
+                                <input required onkeyup="isi_otomatis_ibu()" type="text" class="form-control"
                                     name="nik_ibu" id="nik_ibu" placeholder="Masukan NIK ibu">
                             </div>
                             <div class="form-group">
                                 <label for="nama_ibu">Nama Ibu</label>
-                                <input type="text" class="form-control" name="nama_ibu" id="nama_ibu"
+                                <input required type="text" class="form-control" name="nama_ibu" id="nama_ibu"
                                     placeholder="Masukan Nama Lengkap ibu">
                             </div>
                             <div class="form-group">
                                 <label for="tanggal_lahir_ibu">Tgl Lahir Ibu</label>
-                                <input type="date" class="form-control" name="tanggal_lahir_ibu"
+                                <input required type="date" class="form-control" name="tanggal_lahir_ibu"
                                     id="tanggal_lahir_ibu" placeholder="31-12-1969">
                             </div>
                             <div class="form-group">
                                 <label for="pekerjaan_ibu">Pekerjaan Ibu</label>
-                                <input type="text" name="pekerjaan_ibu" class="form-control"
+                                <input required type="text" name="pekerjaan_ibu" class="form-control"
                                     id="pekerjaan_ibu" placeholder="Masukan Pekerjaan ibu">
                             </div>
                             <div class="form-group">
                                 <label for="alamat_ibu">Alamat Ibu</label>
-                                <textarea name="alamat_ibu" class="form-control" id="alamat_ibu" rows="8"></textarea>
+                                <textarea required name="alamat_ibu" class="form-control" id="alamat_ibu" rows="8"></textarea>
                             </div>
                             <div class="form-group">
                                 <label for="nik_ayah">NIK Ayah</label>
-                                <input onkeyup="isi_otomatis_ayah()" type="text" class="form-control"
+                                <input required onkeyup="isi_otomatis_ayah()" type="text" class="form-control"
                                     name="nik_ayah" id="nik_ayah" placeholder="Masukan NIK ayah">
                             </div>
                             <div class="form-group">
                                 <label for="nama_ayah">Nama Ayah</label>
-                                <input type="text" class="form-control" name="nama_ayah" id="nama_ayah"
+                                <input required type="text" class="form-control" name="nama_ayah" id="nama_ayah"
                                     placeholder="Masukan Nama Lengkap ayah">
                             </div>
                             <div class="form-group">
                                 <label for="tanggal_lahir_ayah">Tgl Lahir Ayah</label>
-                                <input type="date" class="form-control" name="tanggal_lahir_ayah"
+                                <input required type="date" class="form-control" name="tanggal_lahir_ayah"
                                     id="tanggal_lahir_ayah" placeholder="31-12-1969">
                             </div>
                             <div class="form-group">
                                 <label for="pekerjaan_ayah">Pekerjaan Ayah</label>
-                                <input type="text" name="pekerjaan_ayah" class="form-control"
+                                <input required type="text" name="pekerjaan_ayah" class="form-control"
                                     id="pekerjaan_ayah" placeholder="Masukan Pekerjaan ayah">
                             </div>
                             <div class="form-group">
                                 <label for="alamat_ayah">Alamat Ayah</label>
-                                <textarea name="alamat_ayah" class="form-control" id="alamat_ayah" rows="8"></textarea>
+                                <textarea required name="alamat_ayah" class="form-control" id="alamat_ayah" rows="8"></textarea>
                             </div>
                             <div class="form-group">
                                 <label for="nik_pelapor">NIK Pelapor</label>
-                                <input onkeyup="isi_otomatis_pelapor()" type="text" class="form-control"
+                                <input required onkeyup="isi_otomatis_pelapor()" type="text" class="form-control"
                                     name="nik_pelapor" id="nik_pelapor" placeholder="Masukan NIK pelapor">
                             </div>
                             <div class="form-group">
                                 <label for="nama_pelapor">Nama Pelapor</label>
-                                <input type="text" class="form-control" name="nama_pelapor" id="nama_pelapor"
+                                <input required type="text" class="form-control" name="nama_pelapor" id="nama_pelapor"
                                     placeholder="Masukan Nama Lengkap pelapor">
                             </div>
                             <div class="form-group">
                                 <label for="tanggal_lahir_pelapor">Tgl Lahir Pelapor</label>
-                                <input type="date" class="form-control" name="tanggal_lahir_pelapor"
+                                <input required type="date" class="form-control" name="tanggal_lahir_pelapor"
                                     id="tanggal_lahir_pelapor" placeholder="31-12-1969">
                             </div>
                             <div class="form-group">
                                 <label for="pekerjaan_pelapor">Pekerjaan Pelapor</label>
-                                <input type="text" name="pekerjaan_pelapor" class="form-control"
+                                <input required type="text" name="pekerjaan_pelapor" class="form-control"
                                     id="pekerjaan_pelapor" placeholder="Masukan Pekerjaan pelapor">
                             </div>
                             <div class="form-group">
                                 <label for="hubungan_pelapor">Hubungan Pelapor</label>
-                                <input type="text" name="hubungan_pelapor" class="form-control"
+                                <input required type="text" name="hubungan_pelapor" class="form-control"
                                     id="hubungan_pelapor" placeholder="Masukan Pekerjaan pelapor">
                             </div>
                             <div class="form-group">
                                 <label for="alamat_pelapor">Alamat Pelapor</label>
-                                <textarea name="alamat_pelapor" class="form-control" id="alamat_pelapor" rows="8"></textarea>
+                                <textarea required name="alamat_pelapor" class="form-control" id="alamat_pelapor" rows="8"></textarea>
                             </div>
                             <div class="form-group">
                                 <label for="nik_saksi_1">NIK Saksi 1</label>
-                                <input onkeyup="isi_otomatis_saksi_1()" type="text" class="form-control"
+                                <input required onkeyup="isi_otomatis_saksi_1()" type="text" class="form-control"
                                     name="nik_saksi_1" id="nik_saksi_1" placeholder="Masukan NIK saksi 1">
                             </div>
                             <div class="form-group">
                                 <label for="nama_saksi_1">Nama Saksi 1</label>
-                                <input type="text" class="form-control" name="nama_saksi_1" id="nama_saksi_1"
+                                <input required type="text" class="form-control" name="nama_saksi_1" id="nama_saksi_1"
                                     placeholder="Masukan Nama Lengkap saksi 1">
                             </div>
                             <div class="form-group">
                                 <label for="tanggal_lahir_saksi_1">Tgl Lahir Saksi 1</label>
-                                <input type="date" class="form-control" name="tanggal_lahir_saksi_1"
+                                <input required type="date" class="form-control" name="tanggal_lahir_saksi_1"
                                     id="tanggal_lahir_saksi_1" placeholder="31-12-1969">
                             </div>
                             <div class="form-group">
                                 <label for="pekerjaan_saksi_1">Pekerjaan Saksi 1</label>
-                                <input type="text" name="pekerjaan_saksi_1" class="form-control"
+                                <input required type="text" name="pekerjaan_saksi_1" class="form-control"
                                     id="pekerjaan_saksi_1" placeholder="Masukan Pekerjaan saksi 1">
                             </div>
                             <div class="form-group">
                                 <label for="alamat_saksi_1">Alamat Saksi 1</label>
-                                <textarea name="alamat_saksi_1" class="form-control" id="alamat_saksi_1" rows="8"></textarea>
+                                <textarea required name="alamat_saksi_1" class="form-control" id="alamat_saksi_1" rows="8"></textarea>
                             </div>
                             <div class="form-group">
                                 <label for="nik_saksi_2">NIK Saksi 2</label>
-                                <input onkeyup="isi_otomatis_saksi_2()" type="text" class="form-control"
+                                <input required onkeyup="isi_otomatis_saksi_2()" type="text" class="form-control"
                                     name="nik_saksi_2" id="nik_saksi_2" placeholder="Masukan NIK saksi 2">
                             </div>
                             <div class="form-group">
                                 <label for="nama_saksi_2">Nama Saksi 2</label>
-                                <input type="text" class="form-control" name="nama_saksi_2" id="nama_saksi_2"
+                                <input required type="text" class="form-control" name="nama_saksi_2" id="nama_saksi_2"
                                     placeholder="Masukan Nama Lengkap saksi 2">
                             </div>
                             <div class="form-group">
                                 <label for="tanggal_lahir_saksi_2">Tgl Lahir Saksi_2</label>
-                                <input type="date" class="form-control" name="tanggal_lahir_saksi_2"
+                                <input required type="date" class="form-control" name="tanggal_lahir_saksi_2"
                                     id="tanggal_lahir_saksi_2" placeholder="31-12-1969">
                             </div>
                             <div class="form-group">
                                 <label for="pekerjaan_saksi_2">Pekerjaan Saksi_2</label>
-                                <input type="text" name="pekerjaan_saksi_2" class="form-control"
+                                <input required type="text" name="pekerjaan_saksi_2" class="form-control"
                                     id="pekerjaan_saksi_2" placeholder="Masukan Pekerjaan saksi 2">
                             </div>
                             <div class="form-group">
                                 <label for="alamat_saksi_2">Alamat Saksi 2</label>
-                                <textarea name="alamat_saksi_2" class="form-control" id="alamat_saksi_2" rows="8"></textarea>
+                                <textarea required name="alamat_saksi_2" class="form-control" id="alamat_saksi_2" rows="8"></textarea>
                             </div>
                             <button type="submit" class="btn btn-primary me-2 text-white" id="saveBtnEdit"
                             value="create">Submit</button>
@@ -319,7 +329,7 @@
                     {
                         data: 'tanggal_meninggal',
                         name: 'tanggal_meninggal',
-                        render: $.fn.dataTable.render.moment('YYYY-MM-DD HH:mm:ss',
+                        render: $.fn.dataTable.render.moment('YYYY-MM-DD',
                             'DD-MM-YYYY'),
                     },
                     {
@@ -355,6 +365,8 @@
                     $('#id').val(data.id);
                     $('#nik_meninggal').val(data.nik_meninggal);
                     $('#no_surat').val(data.no_surat);
+                    $('#no_kk').val(data.no_kk);
+                    $('#nama_kk').val(data.nama_kk);
                     $('#tempat_meninggal').val(data.tempat_meninggal);
                     $('#nama_lengkap_meninggal').val(data.nama_lengkap_meninggal);
                     $('#jenis_kelamin_meninggal').val(data.jenis_kelamin_meninggal);

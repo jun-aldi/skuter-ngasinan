@@ -528,7 +528,8 @@ class Printpdf extends Controller
             "no_surat" => $this->no_surat = $pengantar->no_surat,
             "nik_meninggal" => $this->nik_meninggal = $pengantar->nik_meninggal,
 
-
+            "no_kk" => $this->no_kk = $pengantar->no_kk,
+            "nama_kk" => $this->nama_kk = $pengantar->nama_kk,
 
             "nama_lengkap_meninggal" => $this->nama_lengkap_meninggal = $pengantar->nama_lengkap_meninggal,
             "jenis_kelamin_meninggal" => $this->jenis_kelamin_meninggal = $pengantar->jenis_kelamin_meninggal,

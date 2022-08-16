@@ -95,7 +95,7 @@ p.ket-lain {
         <p>No. : {{$no_surat}}</p>
     </div>
     <div class="no_kk_kk" style="font-size: 60%;line-height: 10%;margin-top: -10px;">
-        <p>Nama Kepala Keluarga &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: {{($nama_kk)}}</p>
+        <p>Nama Kepala Keluarga &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: {{strtoupper($nama_kk)}}</p>
         <p>Nomor Kepala Keluarga &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: {{$no_kk}}</p>
     </div>
     <div class="page-2" style="font-size: 75%;line-height: 20%">

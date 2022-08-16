@@ -37,6 +37,15 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
     <script src="https://cdn.datatables.net/plug-ins/1.10.21/dataRender/datetime.js" charset="utf8"></script>
+    <link rel="stylesheet" type="text/css"
+        href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css"
+        href="https://pixinvent.com/stack-responsive-bootstrap-4-admin-template/app-assets/css/bootstrap-extended.min.css">
+    <link rel="stylesheet" type="text/css"
+        href="https://pixinvent.com/stack-responsive-bootstrap-4-admin-template/app-assets/fonts/simple-line-icons/style.min.css">
+    <link rel="stylesheet" type="text/css"
+        href="https://pixinvent.com/stack-responsive-bootstrap-4-admin-template/app-assets/css/colors.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
     <!-- Moment.js: -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
 
@@ -65,7 +74,7 @@
                     </button>
                 </div>
                 <div>
-                    <a class="navbar-brand brand-logo" href="index.html">
+                    <a class="navbar-brand brand-logo" href="{{route('welcome')}}">
                         <h5>Skuter Ngasinan</h5>
                     </a>
                     <a class="navbar-brand brand-logo-mini" href="index.html">
@@ -130,7 +139,7 @@
                 <ul class="nav">
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('dashboard') }}">
-                            <i class="mdi mdi-grid-large menu-icon"></i>
+                            <i class="mdi mdi-home menu-icon"></i>
                             <span class="menu-title">Dashboard</span>
                         </a>
                     </li>
@@ -142,31 +151,27 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link"
-                            href="{{ URL::to('suratkematian') }}">
+                        <a class="nav-link" href="{{ URL::to('suratkematian') }}">
                             <i class="menu-icon mdi mdi-file-document"></i>
                             <span class="menu-title">Surat Kematian</span>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link"
-                            href="{{ URL::to('suratkelahiran') }}">
+                        <a class="nav-link" href="{{ URL::to('suratkelahiran') }}">
                             <i class="menu-icon mdi mdi-file-document"></i>
                             <span class="menu-title">Surat Kelahiran</span>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link"
-                            href="{{ URL::to('suratpindah')}}">
+                        <a class="nav-link" href="{{ URL::to('suratpindah') }}">
                             <i class="menu-icon mdi mdi-file-document"></i>
                             <span class="menu-title">Surat Pindah</span>
                         </a>
                     </li>
                     <li class="nav-item nav-category">Kependudukan</li>
                     <li class="nav-item">
-                        <a class="nav-link"
-                            href="{{ URL::to('lihatpenduduk') }}">
-                            <i class="menu-icon mdi mdi-file-document"></i>
+                        <a class="nav-link" href="{{ URL::to('lihatpenduduk') }}">
+                            <i class="menu-icon mdi mdi-account"></i>
                             <span class="menu-title">Lihat Penduduk</span>
                         </a>
                     </li>
@@ -178,14 +183,7 @@
                     <div class="row">
                         <div class="col-sm-12">
                             <div class="home-tab">
-                                <div class="tab-content tab-content-basic">
-                                    <div class="tab-pane fade show active" id="overview" role="tabpanel"
-                                        aria-labelledby="overview">
-                                        <div class="row">
-                                            @yield('konten')
-                                        </div>
-                                    </div>
-                                </div>
+                                @yield('konten')
                             </div>
                         </div>
                     </div>

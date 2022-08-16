@@ -96,6 +96,8 @@ class suratKematianForm extends Controller
         $surat = new surat_kematian();
 
         $surat->nik_meninggal = $request->nik_meninggal;
+        $surat->no_kk = $request->no_kk;
+        $surat->nama_kk = $request->nama_kk;
         $surat->no_surat = $request->no_surat;
         $surat->nama_lengkap_meninggal = $request->nama_lengkap_meninggal;
         $surat->tempat_lahir_meninggal = $request->tempat_lahir_meninggal;

@@ -44,48 +44,48 @@
                             <input type="hidden" name="id" id="id">
                             <div class="form-group">
                                 <label for="nik_kepala_keluarga">NIK Kepala Keluarga</label>
-                                <input onkeyup="isi_otomatis_kk()" type="text" class="form-control"
+                                <input required onkeyup="isi_otomatis_kk()" type="text" class="form-control"
                                     name="nik_kepala_keluarga" id="nik_kepala_keluarga"
                                     placeholder="Masukan NIK Kepala Keluarga Pemohon">
                             </div>
                             <div class="form-group">
                                 <label for="no_kk">No KK</label>
-                                <input name="no_kk" type="text" class="form-control" id="no_kk"
+                                <input required name="no_kk" type="text" class="form-control" id="no_kk"
                                     placeholder="Masukan Nomor KK">
                             </div>
                             <div class="form-group">
                                 <label for="nama_kepala_keluarga">Nama Kepala Keluarga</label>
-                                <input type="text" class="form-control" name="nama_kepala_keluarga" id="nama_kepala_keluarga"
+                                <input required type="text" class="form-control" name="nama_kepala_keluarga" id="nama_kepala_keluarga"
                                     placeholder="Masukan Nama Kepala Keluarga">
                             </div>
                             <div class="form-group">
                                 <label for="alamat">Alamat</label>
-                                <textarea name="alamat" class="form-control" id="alamat" rows="8"></textarea>
+                                <textarea required name="alamat" class="form-control" id="alamat" rows="8"></textarea>
                             </div>
                             <br><br>
                             <div class="form-group">
                                 <label for="nik_pemohon">NIK Pemohon</label>
-                                <input onkeyup="isi_otomatis_pemohon()" type="text" class="form-control" name="nik_pemohon"
+                                <input required onkeyup="isi_otomatis_pemohon()" type="text" class="form-control" name="nik_pemohon"
                                     id="nik_pemohon" placeholder="Masukan NIK Pemohon">
                             </div>
                             <div class="form-group">
                                 <label for="nama_lengkap">Nama Lengkap Pemohon</label>
-                                <input type="text" class="form-control" name="nama_lengkap" id="nama_lengkap"
+                                <input required type="text" class="form-control" name="nama_lengkap" id="nama_lengkap"
                                     placeholder="Masukan Nama Lengkap Pemohon">
                             </div>
                             <div class="form-group">
                                 <label for="telepon">Telepon</label>
-                                <input type="text" class="form-control" name="telepon" id="telepon"
+                                <input required type="text" class="form-control" name="telepon" id="telepon"
                                     placeholder="Masukan Nomor Telepon">
                             </div>
                             <div class="form-group">
                                 <label for="no_surat">Nomor Surat</label>
-                                <input name="no_surat" type="text" class="form-control" id="no_surat"
+                                <input required name="no_surat" type="text" class="form-control" id="no_surat"
                                     placeholder="Masukan Nomor Surat">
                             </div>
                             <div class="form-group">
                                 <label for="alasan">Alasan</label>
-                                <textarea name="alasan" class="form-control" id="alasan" rows="8" placeholder="Alasan Pindah"></textarea>
+                                <textarea required name="alasan" class="form-control" id="alasan" rows="8" placeholder="Alasan Pindah"></textarea>
                             </div>
                             <div class="form-group">
                                 <label for="alamat_tujuan">Alamat Tujuan</label>

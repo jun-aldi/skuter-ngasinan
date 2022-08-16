@@ -17,8 +17,6 @@ class suratKematian extends Controller
      */
     public function index(Request $request)
     {
-
-
         if ($request->ajax()) {
             $data = surat_kematian::select(['id', 'nik_meninggal', 'created_at', 'tanggal_meninggal','no_surat', 'sebab_meninggal']);
             return Datatables::of($data)
@@ -59,6 +57,8 @@ class suratKematian extends Controller
         request()->validate([
             'nik_meninggal' => 'required|max:16',
             'no_surat' => 'required',
+            'no_kk' => 'required',
+            'nama_kk' => 'required',
             'nama_lengkap_meninggal' => 'required',
             'tempat_lahir_meninggal' => 'required',
             'tanggal_lahir_meninggal' => 'required',
@@ -115,6 +115,8 @@ class suratKematian extends Controller
 
         surat_kematian::updateOrCreate(['id'=>$request->id], [
             'nik_meninggal' => $request->nik_meninggal,
+            'no_kk' => $request->no_kk,
+            'nama_kk' => $request->nama_kk,
             'no_surat' => $request->no_surat,
             'nama_lengkap_meninggal' => $request->nama_lengkap_meninggal,
             'tempat_lahir_meninggal' => $request->tempat_lahir_meninggal,

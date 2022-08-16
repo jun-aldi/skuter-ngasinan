@@ -42,12 +42,12 @@
                         <input type="hidden" name="id" id="id">
                         <div class="form-group">
                             <label for="nik">NIK Pemohon</label>
-                            <input onkeyup="isi_otomatis()" type="text" class="form-control" name="nik"
+                            <input required onkeyup="isi_otomatis()" type="text" class="form-control" name="nik"
                                 id="nik" placeholder="Masukan NIK Pemohon">
                         </div>
                         <div class="form-group">
                             <label for="nama_lengkap">Nama Lengkap</label>
-                            <input type="text" class="form-control" name="nama_lengkap" id="nama_lengkap"
+                            <input required type="text" class="form-control" name="nama_lengkap" id="nama_lengkap"
                                 placeholder="Masukan Nama Lengkap">
                         </div>
                         <div class="form-group">
@@ -57,7 +57,7 @@
                         </div>
                         <div class="form-group">
                             <label for="tanggal_lahir">Tanggal Lahir</label>
-                            <input type="date" class="form-control" name="tanggal_lahir" id="tanggal_lahir"
+                            <input required type="date" class="form-control" name="tanggal_lahir" id="tanggal_lahir"
                                 placeholder="31-12-1969">
                         </div>
                         <div class="form-group">
@@ -86,7 +86,7 @@
                         </div>
                         <div class="form-group">
                             <label for="pekerjaan">Pekerjaan</label>
-                            <input type="text" name="pekerjaan" class="form-control" id="pekerjaan"
+                            <input required type="text" name="pekerjaan" class="form-control" id="pekerjaan"
                                 placeholder="Masukan Pekerjaan">
                         </div>
                         <div class="form-group">
@@ -99,33 +99,33 @@
                         </div>
                         <div class="form-group">
                             <label for="alamat">Alamat</label>
-                            <textarea name="alamat" class="form-control" id="alamat" rows="8"></textarea>
+                            <textarea required name="alamat" class="form-control" id="alamat" rows="8"></textarea>
                         </div>
                         <div class="form-group">
                             <label for="no_kk">No KK</label>
-                            <input name="no_kk" type="text" class="form-control" id="no_kk"
+                            <input required name="no_kk" type="text" class="form-control" id="no_kk"
                                 placeholder="Masukan Nomor KK">
                         </div>
                         <div class="form-group">
                             <label for="tanggal_berlaku">Tanggal Berlaku</label>
-                            <input type="date" class="form-control" name="tanggal_berlaku" id="tanggal_berlaku">
+                            <input required type="date" class="form-control" name="tanggal_berlaku" id="tanggal_berlaku">
                         </div>
                         <div class="form-group">
                             <label for="no_surat">Nomor Surat</label>
-                            <input name="no_surat" type="text" class="form-control" id="no_surat"
+                            <input required name="no_surat" type="text" class="form-control" id="no_surat"
                                 placeholder="Masukan Nomor Surat">
                         </div>
                         <div class="form-group">
                             <label for="tujuan">Tujuan</label>
-                            <textarea name="tujuan" class="form-control" id="tujuan" rows="8" placeholder="Tujuan Surat"></textarea>
+                            <textarea required name="tujuan" class="form-control" id="tujuan" rows="8" placeholder="Tujuan Surat"></textarea>
                         </div>
                         <div class="form-group">
                             <label for="keperluan">Keperluan</label>
-                            <textarea name="keperluan" class="form-control" id="keperluan" rows="8" placeholder="Keperluan Surat"></textarea>
+                            <textarea required name="keperluan" class="form-control" id="keperluan" rows="8" placeholder="Keperluan Surat"></textarea>
                         </div>
                         <div class="form-group">
                             <label for="keterangan">Ket Lainnya</label>
-                            <textarea name="keterangan" class="form-control" id="keterangan" rows="8" placeholder="Keterangan Tambahan"></textarea>
+                            <textarea required name="keterangan" class="form-control" id="keterangan" rows="8" placeholder="Keterangan Tambahan"></textarea>
                         </div>
                         <div class="form-group">
                             <label for="pejabat_penandatangan">Pejabat Penandatangan</label>

@@ -19,21 +19,21 @@
                 {{ csrf_field() }}
                 <div class="form-group">
                     <label for="nik_kepala_keluarga">NIK Kepala Keluarga</label>
-                    <input onkeyup="isi_otomatis_kk()" type="text" class="form-control" name="nik_kepala_keluarga" id="nik_kepala_keluarga" placeholder="Masukan NIK Kepala Keluarga Pemohon">
+                    <input required onkeyup="isi_otomatis_kk()" type="text" class="form-control" name="nik_kepala_keluarga" id="nik_kepala_keluarga" placeholder="Masukan NIK Kepala Keluarga Pemohon">
                     @error('nik_kepala_keluarga')
                         <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
                     @enderror
                 </div>
                 <div class="form-group">
                     <label for="no_kk">No KK</label>
-                    <input name="no_kk" type="text" class="form-control" id="no_kk" placeholder="Masukan Nomor KK">
+                    <input required name="no_kk" type="text" class="form-control" id="no_kk" placeholder="Masukan Nomor KK">
                     @error('no_kk')
                         <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
                     @enderror
                 </div>
                 <div class="form-group">
                     <label for="nama_kepala_keluarga">Nama Kepala Keluarga</label>
-                    <input type="text" class="form-control" name="nama_kepala_keluarga" id="nama_kepala_keluarga" placeholder="Masukan Nama Kepala Keluarga">
+                    <input required type="text" class="form-control" name="nama_kepala_keluarga" id="nama_kepala_keluarga" placeholder="Masukan Nama Kepala Keluarga">
                     @error('nama_kepala_keluarga')
                         <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
                     @enderror
@@ -48,28 +48,28 @@
                 <br><br>
                 <div class="form-group">
                     <label for="nik_pemohon">NIK Pemohon</label>
-                    <input onkeyup="isi_otomatis_pemohon()" type="text" class="form-control" name="nik_pemohon" id="nik_pemohon" placeholder="Masukan NIK Pemohon">
+                    <input required onkeyup="isi_otomatis_pemohon()" type="text" class="form-control" name="nik_pemohon" id="nik_pemohon" placeholder="Masukan NIK Pemohon">
                     @error('nik_pemohon')
                         <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
                     @enderror
                 </div>
                 <div class="form-group">
                     <label for="nama_lengkap">Nama Lengkap Pemohon</label>
-                    <input type="text" class="form-control" name="nama_lengkap" id="nama_lengkap" placeholder="Masukan Nama Lengkap Pemohon">
+                    <input required type="text" class="form-control" name="nama_lengkap" id="nama_lengkap" placeholder="Masukan Nama Lengkap Pemohon">
                     @error('nama_lengkap')
                         <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
                     @enderror
                 </div>
                 <div class="form-group">
                     <label for="telepon">Telepon</label>
-                    <input type="text" class="form-control" name="telepon" id="telepon" placeholder="Masukan Nomor Telepon">
+                    <input required type="text" class="form-control" name="telepon" id="telepon" placeholder="Masukan Nomor Telepon">
                     @error('telepon')
                         <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
                     @enderror
                 </div>
                 <div class="form-group">
                     <label for="no_surat">Nomor Surat</label>
-                    <input name="no_surat" type="text" class="form-control" id="no_surat" placeholder="Masukan Nomor Surat">
+                    <input required name="no_surat" type="text" class="form-control" id="no_surat" placeholder="Masukan Nomor Surat">
                     @error('no_surat')
                         <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
                     @enderror

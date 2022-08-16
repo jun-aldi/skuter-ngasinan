@@ -10,7 +10,7 @@ use App\Http\Controllers\form\suratpengantarform;
 use App\Http\Controllers\form\suratPindahForm;
 use App\Http\Controllers\penduduk;
 use App\Http\Controllers\Printpdf;
-use App\Http\Controllers\suratkelahiran;
+use App\Http\Controllers\suratKelahiran;
 use App\Http\Controllers\suratKematian;
 use App\Http\Controllers\suratpengantar as ControllersSuratpengantar;
 use App\Http\Controllers\suratPindah;
@@ -28,7 +28,7 @@ use App\Http\Controllers\suratPindah;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('welcome');
 
 Route::middleware([
     'auth:sanctum',
@@ -43,7 +43,7 @@ Route::middleware([
     Route::resource('lihatpenduduk', penduduk::class);
     Route::resource('suratkematian', suratKematian::class);
     Route::resource('suratpindah', suratPindah::class);
-    Route::resource('suratkelahiran', suratkelahiran::class);
+    Route::resource('suratkelahiran', suratKelahiran::class);
 
 
     //form

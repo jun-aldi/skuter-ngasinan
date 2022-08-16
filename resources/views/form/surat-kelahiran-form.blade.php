@@ -18,7 +18,7 @@
                 {{ csrf_field() }}
                 <div class="form-group">
                     <label for="no_surat">Nomor Surat</label>
-                    <input type="text" class="form-control" name="no_surat" id="no_surat"
+                    <input required type="text" class="form-control" name="no_surat" id="no_surat"
                         placeholder="Masukan Nomor Surat">
                     @error('no_surat')
                         <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
@@ -26,7 +26,7 @@
                 </div>
                 <div class="form-group">
                     <label for="no_kk">Nomor Kartu Keluarga</label>
-                    <input type="text" class="form-control" name="no_kk" id="no_kk"
+                    <input required type="text" class="form-control" name="no_kk" id="no_kk"
                         placeholder="Masukan Nomor KK">
                     @error('no_kk')
                         <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
@@ -34,7 +34,7 @@
                 </div>
                 <div class="form-group">
                     <label for="nama_kk">Nama Kepala Keluarga</label>
-                    <input type="text" class="form-control" name="nama_kk" id="nama_kk"
+                    <input required type="text" class="form-control" name="nama_kk" id="nama_kk"
                         placeholder="Masukan Nama Kepala Keluarga">
                     @error('nama_kk')
                         <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
@@ -42,7 +42,7 @@
                 </div>
                 <div class="form-group">
                     <label for="nama_lengkap_anak">Nama Lengkap Anak</label>
-                    <input type="text" class="form-control" name="nama_lengkap_anak" id="nama_lengkap_anak"
+                    <input required type="text" class="form-control" name="nama_lengkap_anak" id="nama_lengkap_anak"
                         placeholder="Masukan Nama Lengkap">
                     @error('nama_lengkap_anak')
                         <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
@@ -73,7 +73,7 @@
                 </div>
                 <div class="form-group">
                     <label for="tempat_kelahiran">Tempat Kelahiran</label>
-                    <input type="text" class="form-control" name="tempat_kelahiran" id="tempat_kelahiran"
+                    <input required type="text" class="form-control" name="tempat_kelahiran" id="tempat_kelahiran"
                         placeholder="Masukan Nama Lengkap">
                     @error('tempat_kelahiran')
                         <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
@@ -81,7 +81,7 @@
                 </div>
                 <div class="form-group">
                     <label for="tanggal_lahir_anak">Tanggal Lahir Anak</label>
-                    <input type="date" class="form-control" name="tanggal_lahir_anak"
+                    <input required type="date" class="form-control" name="tanggal_lahir_anak"
                         id="tanggal_lahir_anak" placeholder="31-12-1969">
                     @error('tanggal_lahir_anak')
                         <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
@@ -89,7 +89,7 @@
                 </div>
                 <div class="form-group">
                     <label for="jam_lahir_anak">Jam Lahir</label>
-                    <input type="time" class="form-control" name="jam_lahir_anak"
+                    <input required type="time" class="form-control" name="jam_lahir_anak"
                         id="jam_lahir_anak" placeholder="31-12-1969">
                     @error('jam_lahir_anak')
                         <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
@@ -110,7 +110,7 @@
                 </div>
                 <div class="form-group">
                     <label for="kelahiran_ke">Kelahiran Ke</label>
-                    <input type="text" name="kelahiran_ke" class="form-control" id="kelahiran_ke"
+                    <input required type="text" name="kelahiran_ke" class="form-control" id="kelahiran_ke"
                         placeholder="Kelahiran Ke..">
                     @error('kelahiran_ke')
                         <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
@@ -118,7 +118,7 @@
                 </div>
                 <div class="form-group">
                     <label for="berat_bayi">Berat Bayi (kg)</label>
-                    <input name="berat_bayi" type="number" class="form-control" id="berat_bayi"
+                    <input required name="berat_bayi" type="number" class="form-control" id="berat_bayi"
                         placeholder="Berat Bayi ">
                     @error('berat_bayi')
                         <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
@@ -126,7 +126,7 @@
                 </div>
                 <div class="form-group">
                     <label for="panjang_bayi">Panjang Bayi (cm)</label>
-                    <input type="number" class="form-control" name="panjang_bayi" id="panjang_bayi"
+                    <input required type="number" class="form-control" name="panjang_bayi" id="panjang_bayi"
                         placeholder="Panjang Bayi">
                     @error('panjang_bayi')
                         <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
@@ -166,7 +166,7 @@
             </p>
             <div class="form-group">
                 <label for="nik_ayah">NIK Ayah</label>
-                <input onkeyup="isi_otomatis_ayah()" type="text" class="form-control" name="nik_ayah"
+                <input required onkeyup="isi_otomatis_ayah()" type="text" class="form-control" name="nik_ayah"
                     id="nik_ayah" placeholder="Masukan NIK Ayah">
                 @error('nik_ayah')
                     <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
@@ -174,7 +174,7 @@
             </div>
             <div class="form-group">
                 <label for="nama_ayah">Nama Ayah</label>
-                <input type="text" class="form-control" name="nama_ayah" id="nama_ayah"
+                <input required type="text" class="form-control" name="nama_ayah" id="nama_ayah"
                     placeholder="Masukan Nama Lengkap Ayah">
                 @error('nama_ayah')
                     <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
@@ -182,7 +182,7 @@
             </div>
             <div class="form-group">
                 <label for="tanggal_lahir_ayah">Tgl Lahir Ayah</label>
-                <input type="date" class="form-control" name="tanggal_lahir_ayah" id="tanggal_lahir_ayah"
+                <input required type="date" class="form-control" name="tanggal_lahir_ayah" id="tanggal_lahir_ayah"
                     placeholder="31-12-1969">
                 @error('tanggal_lahir_ayah')
                     <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
@@ -190,7 +190,7 @@
             </div>
             <div class="form-group">
                 <label for="pekerjaan_ayah">Pekerjaan Ayah</label>
-                <input type="text" name="pekerjaan_ayah" class="form-control" id="pekerjaan_ayah"
+                <input required type="text" name="pekerjaan_ayah" class="form-control" id="pekerjaan_ayah"
                     placeholder="Masukan Pekerjaan Ayah">
                 @error('pekerjaan_ayah')
                     <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
@@ -198,7 +198,7 @@
             </div>
             <div class="form-group">
                 <label for="alamat_ayah">Alamat Ayah</label>
-                <textarea name="alamat_ayah" class="form-control" id="alamat_ayah" rows="8"></textarea>
+                <textarea required name="alamat_ayah" class="form-control" id="alamat_ayah" rows="8"></textarea>
                 @error('alamat_ayah')
                     <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
                 @enderror
@@ -215,7 +215,7 @@
             </p>
             <div class="form-group">
                 <label for="nik_ibu">NIK Ibu</label>
-                <input onkeyup="isi_otomatis_ibu()" type="text" class="form-control" name="nik_ibu"
+                <input required onkeyup="isi_otomatis_ibu()" type="text" class="form-control" name="nik_ibu"
                     id="nik_ibu" placeholder="Masukan NIK ibu">
                 @error('nik_ibu')
                     <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
@@ -223,7 +223,7 @@
             </div>
             <div class="form-group">
                 <label for="nama_ibu">Nama Ibu</label>
-                <input type="text" class="form-control" name="nama_ibu" id="nama_ibu"
+                <input required type="text" class="form-control" name="nama_ibu" id="nama_ibu"
                     placeholder="Masukan Nama Lengkap ibu">
                 @error('nama_ibu')
                     <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
@@ -231,7 +231,7 @@
             </div>
             <div class="form-group">
                 <label for="tanggal_lahir_ibu">Tgl Lahir Ibu</label>
-                <input type="date" class="form-control" name="tanggal_lahir_ibu" id="tanggal_lahir_ibu"
+                <input required type="date" class="form-control" name="tanggal_lahir_ibu" id="tanggal_lahir_ibu"
                     placeholder="31-12-1969">
                 @error('tanggal_lahir_ibu')
                     <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
@@ -239,7 +239,7 @@
             </div>
             <div class="form-group">
                 <label for="pekerjaan_ibu">Pekerjaan Ibu</label>
-                <input type="text" name="pekerjaan_ibu" class="form-control" id="pekerjaan_ibu"
+                <input required type="text" name="pekerjaan_ibu" class="form-control" id="pekerjaan_ibu"
                     placeholder="Masukan Pekerjaan ibu">
                 @error('pekerjaan_ibu')
                     <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
@@ -247,7 +247,7 @@
             </div>
             <div class="form-group">
                 <label for="alamat_ibu">Alamat Ibu</label>
-                <textarea name="alamat_ibu" class="form-control" id="alamat_ibu" rows="8"></textarea>
+                <textarea required name="alamat_ibu" class="form-control" id="alamat_ibu" rows="8"></textarea>
                 @error('alamat_ibu')
                     <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
                 @enderror
@@ -263,7 +263,7 @@
                 Data Pelapor
             <div class="form-group">
                 <label for="nik_pelapor">NIK Pelapor</label>
-                <input onkeyup="isi_otomatis_pelapor()" type="text" class="form-control" name="nik_pelapor"
+                <input required onkeyup="isi_otomatis_pelapor()" type="text" class="form-control" name="nik_pelapor"
                     id="nik_pelapor" placeholder="Masukan NIK pelapor">
                 @error('nik_pelapor')
                     <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
@@ -271,7 +271,7 @@
             </div>
             <div class="form-group">
                 <label for="nama_pelapor">Nama Pelapor</label>
-                <input type="text" class="form-control" name="nama_pelapor" id="nama_pelapor"
+                <input required type="text" class="form-control" name="nama_pelapor" id="nama_pelapor"
                     placeholder="Masukan Nama Lengkap pelapor">
                 @error('nama_pelapor')
                     <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
@@ -279,7 +279,7 @@
             </div>
             <div class="form-group">
                 <label for="tanggal_lahir_pelapor">Tgl Lahir Pelapor</label>
-                <input type="date" class="form-control" name="tanggal_lahir_pelapor" id="tanggal_lahir_pelapor"
+                <input required type="date" class="form-control" name="tanggal_lahir_pelapor" id="tanggal_lahir_pelapor"
                     placeholder="31-12-1969">
                 @error('tanggal_lahir_pelapor')
                     <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
@@ -287,7 +287,7 @@
             </div>
             <div class="form-group">
                 <label for="pekerjaan_pelapor">Pekerjaan Pelapor</label>
-                <input type="text" name="pekerjaan_pelapor" class="form-control" id="pekerjaan_pelapor"
+                <input required type="text" name="pekerjaan_pelapor" class="form-control" id="pekerjaan_pelapor"
                     placeholder="Masukan Pekerjaan pelapor">
                 @error('pekerjaan_pelapor')
                     <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
@@ -295,7 +295,7 @@
             </div>
             <div class="form-group">
                 <label for="alamat_pelapor">Alamat Pelapor</label>
-                <textarea name="alamat_pelapor" class="form-control" id="alamat_pelapor" rows="8"></textarea>
+                <textarea required name="alamat_pelapor" class="form-control" id="alamat_pelapor" rows="8"></textarea>
                 @error('alamat_pelapor')
                     <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
                 @enderror
@@ -311,7 +311,7 @@
             </p>
             <div class="form-group">
                 <label for="nik_saksi_1">NIK Saksi 1</label>
-                <input onkeyup="isi_otomatis_saksi_1()" type="text" class="form-control" name="nik_saksi_1"
+                <input required onkeyup="isi_otomatis_saksi_1()" type="text" class="form-control" name="nik_saksi_1"
                     id="nik_saksi_1" placeholder="Masukan NIK saksi 1">
                 @error('nik_saksi_1')
                     <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
@@ -319,7 +319,7 @@
             </div>
             <div class="form-group">
                 <label for="nama_saksi_1">Nama Saksi 1</label>
-                <input type="text" class="form-control" name="nama_saksi_1" id="nama_saksi_1"
+                <input required type="text" class="form-control" name="nama_saksi_1" id="nama_saksi_1"
                     placeholder="Masukan Nama Lengkap saksi 1">
                 @error('nama_saksi_1')
                     <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
@@ -327,7 +327,7 @@
             </div>
             <div class="form-group">
                 <label for="tanggal_lahir_saksi_1">Tgl Lahir Saksi 1</label>
-                <input type="date" class="form-control" name="tanggal_lahir_saksi_1" id="tanggal_lahir_saksi_1"
+                <input required type="date" class="form-control" name="tanggal_lahir_saksi_1" id="tanggal_lahir_saksi_1"
                     placeholder="31-12-1969">
                 @error('tanggal_lahir_saksi_1')
                     <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
@@ -335,7 +335,7 @@
             </div>
             <div class="form-group">
                 <label for="pekerjaan_saksi_1">Pekerjaan Saksi 1</label>
-                <input type="text" name="pekerjaan_saksi_1" class="form-control" id="pekerjaan_saksi_1"
+                <input required type="text" name="pekerjaan_saksi_1" class="form-control" id="pekerjaan_saksi_1"
                     placeholder="Masukan Pekerjaan saksi 1">
                 @error('pekerjaan_saksi_1')
                     <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
@@ -343,7 +343,7 @@
             </div>
             <div class="form-group">
                 <label for="alamat_saksi_1">Alamat Saksi 1</label>
-                <textarea name="alamat_saksi_1" class="form-control" id="alamat_saksi_1" rows="8"></textarea>
+                <textarea required name="alamat_saksi_1" class="form-control" id="alamat_saksi_1" rows="8"></textarea>
                 @error('alamat_saksi_1')
                     <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
                 @enderror
@@ -359,7 +359,7 @@
             </p>
             <div class="form-group">
                 <label for="nik_saksi_2">NIK Saksi 2</label>
-                <input onkeyup="isi_otomatis_saksi_2()" type="text" class="form-control" name="nik_saksi_2"
+                <input required onkeyup="isi_otomatis_saksi_2()" type="text" class="form-control" name="nik_saksi_2"
                     id="nik_saksi_2" placeholder="Masukan NIK saksi 2">
                 @error('nik_saksi_2')
                     <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
@@ -367,7 +367,7 @@
             </div>
             <div class="form-group">
                 <label for="nama_saksi_2">Nama Saksi 2</label>
-                <input type="text" class="form-control" name="nama_saksi_2" id="nama_saksi_2"
+                <input required type="text" class="form-control" name="nama_saksi_2" id="nama_saksi_2"
                     placeholder="Masukan Nama Lengkap saksi 2">
                 @error('nama_saksi_2')
                     <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
@@ -375,7 +375,7 @@
             </div>
             <div class="form-group">
                 <label for="tanggal_lahir_saksi_2">Tgl Lahir Saksi_2</label>
-                <input type="date" class="form-control" name="tanggal_lahir_saksi_2" id="tanggal_lahir_saksi_2"
+                <input required type="date" class="form-control" name="tanggal_lahir_saksi_2" id="tanggal_lahir_saksi_2"
                     placeholder="31-12-1969">
                 @error('tanggal_lahir_saksi_2')
                     <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
@@ -383,7 +383,7 @@
             </div>
             <div class="form-group">
                 <label for="pekerjaan_saksi_2">Pekerjaan Saksi_2</label>
-                <input type="text" name="pekerjaan_saksi_2" class="form-control" id="pekerjaan_saksi_2"
+                <input required type="text" name="pekerjaan_saksi_2" class="form-control" id="pekerjaan_saksi_2"
                     placeholder="Masukan Pekerjaan saksi 2">
                 @error('pekerjaan_saksi_2')
                     <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
@@ -391,7 +391,7 @@
             </div>
             <div class="form-group">
                 <label for="alamat_saksi_2">Alamat Saksi 2</label>
-                <textarea name="alamat_saksi_2" class="form-control" id="alamat_saksi_2" rows="8"></textarea>
+                <textarea required name="alamat_saksi_2" class="form-control" id="alamat_saksi_2" rows="8"></textarea>
                 @error('alamat_saksi_2')
                     <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
                 @enderror
