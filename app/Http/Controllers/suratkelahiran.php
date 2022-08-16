@@ -25,7 +25,7 @@ class suratkelahiran extends Controller
                     return $btn;
                 })
                 ->addColumn('lihatpdf', function ($data) {
-                    $url_download_file = route('printKematian', $data->id);
+                    $url_download_file = route('printKelahiran', $data->id);
                     return view('print.download-pengantar')->with('url_download_file', $url_download_file)->render();
                 })
                 ->rawColumns(['action','lihatpdf'])

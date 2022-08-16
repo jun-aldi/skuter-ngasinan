@@ -38,9 +38,12 @@ class suratkelahiranform extends Controller
     {
         $validatedData = $request->validate([
             'no_surat' => 'required',
+            'nama_kk' => 'required',
+            'no_kk' => 'required',
             'nama_lengkap_anak' => 'required',
             'jenis_kelamin_anak' => 'required',
             'tempat_dilahirkan' => 'required',
+            'tempat_kelahiran' => 'required',
             'tanggal_lahir_anak' => 'required',
             'jam_lahir_anak' => 'required',
             'jenis_kelahiran' => 'required',
@@ -91,8 +94,11 @@ class suratkelahiranform extends Controller
 
         $surat->no_surat = $request->no_surat;
         $surat->nama_lengkap_anak = $request->nama_lengkap_anak;
+        $surat->nama_kk = $request->nama_kk;
+        $surat->no_kk = $request->no_kk;
         $surat->jenis_kelamin_anak = $request->jenis_kelamin_anak;
         $surat->tempat_dilahirkan = $request->tempat_dilahirkan;
+        $surat->tempat_kelahiran = $request->tempat_kelahiran;
         $surat->tanggal_lahir_anak = $request->tanggal_lahir_anak;
         $surat->jam_lahir_anak = $request->jam_lahir_anak;
         $surat->jenis_kelahiran = $request->jenis_kelahiran;

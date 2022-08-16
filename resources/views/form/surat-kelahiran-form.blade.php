@@ -25,6 +25,22 @@
                     @enderror
                 </div>
                 <div class="form-group">
+                    <label for="no_kk">Nomor Kartu Keluarga</label>
+                    <input type="text" class="form-control" name="no_kk" id="no_kk"
+                        placeholder="Masukan Nomor KK">
+                    @error('no_kk')
+                        <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
+                    @enderror
+                </div>
+                <div class="form-group">
+                    <label for="nama_kk">Nama Kepala Keluarga</label>
+                    <input type="text" class="form-control" name="nama_kk" id="nama_kk"
+                        placeholder="Masukan Nama Kepala Keluarga">
+                    @error('nama_kk')
+                        <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
+                    @enderror
+                </div>
+                <div class="form-group">
                     <label for="nama_lengkap_anak">Nama Lengkap Anak</label>
                     <input type="text" class="form-control" name="nama_lengkap_anak" id="nama_lengkap_anak"
                         placeholder="Masukan Nama Lengkap">
@@ -55,7 +71,14 @@
                         <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
                     @enderror
                 </div>
-
+                <div class="form-group">
+                    <label for="tempat_kelahiran">Tempat Kelahiran</label>
+                    <input type="text" class="form-control" name="tempat_kelahiran" id="tempat_kelahiran"
+                        placeholder="Masukan Nama Lengkap">
+                    @error('tempat_kelahiran')
+                        <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
+                    @enderror
+                </div>
                 <div class="form-group">
                     <label for="tanggal_lahir_anak">Tanggal Lahir Anak</label>
                     <input type="date" class="form-control" name="tanggal_lahir_anak"
@@ -102,7 +125,7 @@
                     @enderror
                 </div>
                 <div class="form-group">
-                    <label for="panjang_bayi">Panjang Bayi (kg)</label>
+                    <label for="panjang_bayi">Panjang Bayi (cm)</label>
                     <input type="number" class="form-control" name="panjang_bayi" id="panjang_bayi"
                         placeholder="Panjang Bayi">
                     @error('panjang_bayi')

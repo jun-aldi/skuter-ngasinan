@@ -71,7 +71,9 @@
                 },
                 {
                     data: 'lihatpdf',
-                    name: 'lihatpdf'
+                    name: 'lihatpdf',
+                    orderable: false,
+                    searchable: false
                 },
                 {
                     data: 'action',

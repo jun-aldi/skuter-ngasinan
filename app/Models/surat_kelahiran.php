@@ -12,10 +12,14 @@ class surat_kelahiran extends Model
     use HasFactory, SoftDeletes;
 
     protected $fillable = [
+        'nama_kk',
+        'no_kk',
+        'nama_kk',
         'no_surat',
         'nama_lengkap_anak',
         'jenis_kelamin_anak',
         'tempat_dilahirkan',
+        'tempat_kelahiran',
         'tanggal_lahir_anak',
         'jam_lahir_anak',
         'jenis_kelahiran',
