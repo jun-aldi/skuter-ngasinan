@@ -15,7 +15,9 @@ class suratPindahForm extends Controller
      */
     public function index()
     {
-        return view('form.surat-pindah-form');
+        $title = "Form Surat Pindah";
+        return view('form.surat-pindah-form')
+        ->with('title', $title);
     }
 
     /**

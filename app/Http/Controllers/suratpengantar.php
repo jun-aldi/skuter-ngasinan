@@ -17,6 +17,7 @@ class suratpengantar extends Controller
 
     public function index(Request $request)
     {
+        $title = "Surat Pengantar";
         if ($request->ajax()) {
             $data = surat_pengantar::select(['id', 'nik', 'created_at','tanggal_berlaku', 'no_surat', 'keterangan']);
             return Datatables::of($data)
@@ -34,7 +35,8 @@ class suratpengantar extends Controller
                 ->make(true);
         }
 
-        return view('surat.surat-pengantar');
+        return view('surat.surat-pengantar')
+        ->with('title', $title);
     }
 
     /**

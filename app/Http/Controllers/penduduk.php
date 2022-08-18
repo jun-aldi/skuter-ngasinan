@@ -15,6 +15,7 @@ class penduduk extends Controller
      */
     public function index(Request $request)
     {
+        $title = "Data Penduduk";
         if ($request->ajax()) {
             $data = ModelsPenduduk::select(['id','nama_lengkap', 'no_kk','nik', 'tanggal_lahir','created_at', 'updated_at']);
             return Datatables::of($data)
@@ -28,7 +29,8 @@ class penduduk extends Controller
                 ->make(true);
         }
 
-        return view('penduduk-datatables');
+        return view('penduduk-datatables')
+        ->with('title',$title);
     }
 
     /**

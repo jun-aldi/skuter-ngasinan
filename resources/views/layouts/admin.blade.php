@@ -7,8 +7,8 @@
     <meta charset="utf-8">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Skuter Ngasinan</title>
-    <link href="image/sukoharjo.png" rel="icon">
+    <title>{{$title}}</title>
+    <link href="image/simpel.svg" rel="icon">
     <!-- plugins:css -->
     {{-- <link rel="stylesheet" href="vendors/feather/feather.css">
   <link rel="stylesheet" href="vendors/mdi/css/materialdesignicons.min.css">
@@ -76,7 +76,7 @@
                 </div>
                 <div>
                     <a class="navbar-brand brand-logo" href="{{route('welcome')}}">
-                        <h5>Skuter Ngasinan</h5>
+                        <h5>Simpel Ngasinan</h5>
                     </a>
                     <a class="navbar-brand brand-logo-mini" href="index.html">
                     </a>

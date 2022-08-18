@@ -15,7 +15,9 @@ class suratkelahiranform extends Controller
      */
     public function index()
     {
-        return view('form.surat-kelahiran-form');
+        $title = "Form Surat Kelahiran";
+        return view('form.surat-kelahiran-form')
+        ->with('title', $title);
     }
 
     /**

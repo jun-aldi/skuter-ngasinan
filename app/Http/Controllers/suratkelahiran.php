@@ -15,6 +15,7 @@ class suratkelahiran extends Controller
      */
     public function index(Request $request)
     {
+        $title = "Surat Kelahiran";
         if ($request->ajax()) {
             $data = surat_kelahiran::select(['id', 'no_surat', 'created_at', 'nama_lengkap_anak', 'tanggal_lahir_anak','nama_ibu',]);
             return Datatables::of($data)
@@ -31,7 +32,8 @@ class suratkelahiran extends Controller
                 ->rawColumns(['action','lihatpdf'])
                 ->make(true);
         }
-        return view('surat.surat-kelahiran');
+        return view('surat.surat-kelahiran')
+        ->with('title', $title);
     }
 
     /**

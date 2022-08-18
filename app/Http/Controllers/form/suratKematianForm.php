@@ -15,7 +15,9 @@ class suratKematianForm extends Controller
      */
     public function index()
     {
-        return view('form.surat-kematian-form');
+        $title = "Form Surat Kematian";
+        return view('form.surat-kematian-form')
+        ->with('title', $title);
     }
 
     /**

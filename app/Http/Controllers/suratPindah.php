@@ -15,7 +15,7 @@ class suratPindah extends Controller
      */
     public function index(Request $request)
     {
-
+        $title = "Surat Pindah";
         if ($request->ajax()) {
             $data = surat_pindah::select(['id', 'no_kk', 'created_at', 'nama_kepala_keluarga','nik_pemohon', 'nama_lengkap']);
             return Datatables::of($data)
@@ -33,7 +33,8 @@ class suratPindah extends Controller
                 ->make(true);
         }
 
-        return view('surat.surat-pindah');
+        return view('surat.surat-pindah')
+        ->with('title', $title);
     }
 
     /**

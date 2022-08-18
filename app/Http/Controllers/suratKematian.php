@@ -17,6 +17,7 @@ class suratKematian extends Controller
      */
     public function index(Request $request)
     {
+        $title = "Surat Kematian";
         if ($request->ajax()) {
             $data = surat_kematian::select(['id', 'nik_meninggal', 'created_at', 'tanggal_meninggal','no_surat', 'sebab_meninggal']);
             return Datatables::of($data)
@@ -33,7 +34,8 @@ class suratKematian extends Controller
                 ->rawColumns(['action','lihatpdf'])
                 ->make(true);
         }
-        return view('surat.surat-kematian');
+        return view('surat.surat-kematian')
+        ->with('title', $title);
     }
 
     /**

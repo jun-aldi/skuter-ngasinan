@@ -14,7 +14,7 @@ class dashboard extends Controller
     public function render()
     {
 
-
+        $title = 'Dashboard';
         $countPenduduk = penduduk::all()->count();
         $countPindah = surat_pindah::all()->count();
         $countPengantar = surat_pengantar::all()->count();
@@ -28,7 +28,8 @@ class dashboard extends Controller
             ->with('countPengantar', $countPengantar)
             ->with('countKematian', $countKematian)
             ->with('countTotal', $countTotal)
-            ->with('countKelahiran', $countKelahiran);
+            ->with('countKelahiran', $countKelahiran)
+            ->with('title', $title);
 
 
     }

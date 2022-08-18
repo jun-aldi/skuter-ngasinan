@@ -15,7 +15,9 @@ class pendudukform extends Controller
      */
     public function index()
     {
-        return view('form.penduduk-form');
+        $title = "Form Data Penduduk";
+        return view('form.penduduk-form')
+        ->with('title', $title);
     }
 
     /**

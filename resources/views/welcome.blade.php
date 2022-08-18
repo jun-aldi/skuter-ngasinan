@@ -5,13 +5,13 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <title>Skuter Ngasinan</title>
+    <title>Simpel Ngasinan</title>
     <meta content="" name="description">
 
     <meta content="" name="keywords">
 
     <!-- Favicons -->
-    <link href="image/sukoharjo.png" rel="icon">
+    <link href="image/simpel.svg" rel="icon">
 
 
     <!-- Google Fonts -->
@@ -35,7 +35,16 @@
   * Template URL: https://bootstrapmade.com/flexstart-bootstrap-startup-template/
   * Author: BootstrapMade.com
   * License: https://bootstrapmade.com/license/
+
   ======================================================== -->
+
+    <style>
+        img.image-logo.img-fluid {
+            width: 3rem;
+            height: 3rem;
+            margin: 1rem;
+        }
+    </style>
 </head>
 
 <body>
@@ -45,8 +54,8 @@
         <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
 
             <a href="index.html" class="logo d-flex align-items-center">
-                <img src="assets/img/logo.png" alt="">
-                <span>Skuter Ngasinan</span>
+                <img src="image/simpel.svg" alt="">
+                <span>Simpel Ngasinan</span>
             </a>
 
             <nav id="navbar" class="navbar">
@@ -54,20 +63,20 @@
                     <li><a class="nav-link scrollto active" href="{{ url('/') }}">Home</a></li>
 
                     @if (Route::has('login'))
-                            @auth
+                        @auth
                             <li class="dropdown"><a href="#"><span>Pembuatan Surat</span> <i
-                                class="bi bi-chevron-down"></i></a>
-                               <ul>
-                                   <li><a href="{{ url('/suratpengantar') }}">Surat Pengantar</a></li>
-                                   <li><a href="{{ url('/suratkelahiran') }}">Surat Kelahiran</a></li>
-                                   <li><a href="{{ url('/suratpindah') }}">Surat Pindah</a></li>
-                                   <li><a href="{{ url('/suratkematian') }}">Surat Kematian</a></li>
-                               </ul>
-                           </li>
-                            <li><a class="getstarted scrollto" href="{{ url('/suratkematian') }}">Dashboard</a></li>
-                            @else
+                                        class="bi bi-chevron-down"></i></a>
+                                <ul>
+                                    <li><a href="{{ url('/suratpengantar') }}">Surat Pengantar</a></li>
+                                    <li><a href="{{ url('/suratkelahiran') }}">Surat Kelahiran</a></li>
+                                    <li><a href="{{ url('/suratpindah') }}">Surat Pindah</a></li>
+                                    <li><a href="{{ url('/suratkematian') }}">Surat Kematian</a></li>
+                                </ul>
+                            </li>
+                            <li><a class="getstarted scrollto" href="{{ url('/dashboard') }}">Dashboard</a></li>
+                        @else
                             <li><a class="getstarted scrollto" href="{{ route('login') }}">Login</a></li>
-                            @endauth
+                        @endauth
                     @endif
                 </ul>
                 <i class="bi bi-list mobile-nav-toggle"></i>
@@ -78,16 +87,22 @@
 
     <!-- ======= Hero Section ======= -->
     <section id="hero" class="hero d-flex align-items-center">
-
         <div class="container">
             <div class="row">
                 <div class="col-lg-6 d-flex flex-column justify-content-center">
-                    <h1 data-aos="fade-up">Surat Keterangan Terpadu Desa Ngasinan</h1>
+                    <h1 data-aos="fade-up">Sistem Informasi dan Pelayanan Desa Ngasinan</h1>
                     <br>
-                    <h6 data-aos="fade-up" data-aos-delay="400">Aplikasi Pembutan Aplikasi Berbasis Websites yang akan memudahkan dalam pembuatan surat keterangan di Desa Ngasinan, Bulu, Sukoharjo</h6>
+                    <h5 data-aos="fade-up" data-aos-delay="400">Aplikasi pembuatan aplikasi berbasis websites yang akan
+                        memudahkan dalam pembuatan surat keterangan di Desa Ngasinan, Bulu, Sukoharjo</h5>
+                    <div data-aos="fade-up" data-aos-delay="600" class="d-flex justify-content-start">
+                        <img class="image-logo img-fluid" src="image/logo-uns-biru.webp" alt="" srcset="">
+                        <img class="image-logo img-fluid" src="image/sukoharjo.png" alt="" srcset="">
+                        <img class="image-logo img-fluid" src="image/simpel.svg" alt="" srcset="">
+                    </div>
+
                     <div data-aos="fade-up" data-aos-delay="600">
                         <div class="text-center text-lg-start">
-                            <a href="{{url('/dashboard')}}"
+                            <a href="{{ url('/dashboard') }}"
                                 class="btn-get-started scrollto d-inline-flex align-items-center justify-content-center align-self-center">
                                 <span>Mulai</span>
                                 <i class="bi bi-arrow-right"></i>
@@ -100,7 +115,6 @@
                 </div>
             </div>
         </div>
-
     </section><!-- End Hero -->
 
     <!-- ======= Footer ======= -->
