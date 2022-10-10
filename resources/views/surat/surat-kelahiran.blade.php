@@ -269,6 +269,10 @@
         });
 
         var table = $('.data-table').DataTable({
+            dom: 'lBfrtip',
+                buttons: [
+                    'copy', 'excel', 'pdf', 'csv', 'print'
+                ],
             processing: true,
             serverSide: true,
             ajax: "{{ route('suratkelahiran.index') }}",

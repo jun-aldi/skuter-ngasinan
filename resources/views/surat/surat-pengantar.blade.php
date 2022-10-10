@@ -88,6 +88,9 @@
                             <label for="pekerjaan">Pekerjaan</label>
                             <input required type="text" name="pekerjaan" class="form-control" id="pekerjaan"
                                 placeholder="Masukan Pekerjaan">
+                            @error('pekerjaan')
+                                <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
+                            @enderror
                         </div>
                         <div class="form-group">
                             <label for="status_kawin">Status Kawin</label>
@@ -108,7 +111,8 @@
                         </div>
                         <div class="form-group">
                             <label for="tanggal_berlaku">Tanggal Berlaku</label>
-                            <input required type="date" class="form-control" name="tanggal_berlaku" id="tanggal_berlaku">
+                            <input required type="date" class="form-control" name="tanggal_berlaku"
+                                id="tanggal_berlaku">
                         </div>
                         <div class="form-group">
                             <label for="no_surat">Nomor Surat</label>
@@ -121,11 +125,13 @@
                         </div>
                         <div class="form-group">
                             <label for="keperluan">Keperluan</label>
-                            <textarea required name="keperluan" class="form-control" id="keperluan" rows="8" placeholder="Keperluan Surat"></textarea>
+                            <textarea required name="keperluan" class="form-control" id="keperluan" rows="8"
+                                placeholder="Keperluan Surat"></textarea>
                         </div>
                         <div class="form-group">
                             <label for="keterangan">Ket Lainnya</label>
-                            <textarea required name="keterangan" class="form-control" id="keterangan" rows="8" placeholder="Keterangan Tambahan"></textarea>
+                            <textarea required name="keterangan" class="form-control" id="keterangan" rows="8"
+                                placeholder="Keterangan Tambahan"></textarea>
                         </div>
                         <div class="form-group">
                             <label for="pejabat_penandatangan">Pejabat Penandatangan</label>
@@ -136,6 +142,7 @@
                         </div>
                         <button type="submit" class="btn btn-primary me-2 text-white" id="saveBtnEdit"
                             value="create">Submit</button>
+                        <p class="saveError" id="saveError"></p>
                     </form>
                 </div>
             </div>
@@ -151,6 +158,10 @@
             });
 
             var table = $('.data-table').DataTable({
+                lengthMenu: [
+                    [10, 25, 50, 100, -1],
+                    [10, 25, 50, 100, 'All'],
+                ],
                 processing: true,
                 serverSide: true,
                 ajax: "{{ route('suratpengantar.index') }}",
@@ -199,6 +210,24 @@
                 order: [
                     [1, 'desc']
                 ],
+                dom: '<"col"l><"container-fluid"<"row"<"col"B><"col"f>>>rtip',
+                buttons: [{
+                        extend: 'csv',
+                        className: 'btn btn-secondary  text-white'
+                    },
+                    {
+                        extend: 'excel',
+                        className: 'btn btn-secondary text-white'
+                    },
+                    {
+                        extend: 'pdf',
+                        className: 'btn btn-secondary   text-white'
+                    },
+                    {
+                        extend: 'print',
+                        className: 'btn btn-secondary text-white'
+                    }
+                ],
             });
 
 
@@ -234,7 +263,6 @@
             $('#saveBtnEdit').click(function(e) {
                 e.preventDefault();
                 $(this).html('Sending..');
-
                 $.ajax({
                     data: $('#editPengantarForm').serialize(),
                     url: "{{ route('suratpengantar.store') }}",
@@ -248,7 +276,7 @@
                     },
                     error: function(data) {
                         console.log('Error:', data);
-                        $('#saveError').html('Error', data);
+                        $('#saveError').html('Error');
                         $('#saveBtnEdit').html('Simpan Perubahan');
                     }
                 });

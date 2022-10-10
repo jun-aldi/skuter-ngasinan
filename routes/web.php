@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\agenda\AgendaForm;
+use App\Http\Controllers\agenda\AgendaHome;
+use App\Http\Controllers\agenda\AgendaView;
 use App\Http\Controllers\SuratPengantar;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Dashboard;
@@ -61,4 +64,10 @@ Route::middleware([
 
     //autofill
     Route::get('/autofill/{nik}', [suratpengantarform::class, 'autofill'])->name('autofill');
+
+    //agenda
+    Route::resource('agenda', AgendaView::class);
+    Route::resource('agendaform', AgendaForm::class);
+    Route::get('/agenda-desa',[AgendaHome::class, 'render'])->name('agenda-desa');
+
 });

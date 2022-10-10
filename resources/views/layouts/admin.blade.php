@@ -7,7 +7,7 @@
     <meta charset="utf-8">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>{{$title}}</title>
+    <title>{{ $title }}</title>
     <link href="image/simpel.svg" rel="icon">
     <!-- plugins:css -->
     {{-- <link rel="stylesheet" href="vendors/feather/feather.css">
@@ -29,7 +29,8 @@
         href="https://cdnjs.cloudflare.com/ajax/libs/jquery.perfect-scrollbar/0.6.7/css/perfect-scrollbar.min.css" />
     @vite(['public/vendors/feather/feather.css', 'public/vendors/mdi/css/materialdesignicons.min.css', 'public/vendors/ti-icons/css/themify-icons.css', 'public/vendors/typicons/typicons.css', 'public/vendors/simple-line-icons/css/simple-line-icons.css', 'public/vendors/css/vendor.bundle.base.css', 'public/js/select.dataTables.min.css', 'public/css/vertical-layout-light/style.css'])
     <!-- endinject -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css" />
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css" />
     <link href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css" rel="stylesheet">
     <link href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
@@ -50,6 +51,13 @@
     <!-- Moment.js: -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
 
+    <script src="https://cdn.datatables.net/buttons/2.2.3/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.2.3/js/buttons.html5.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.2.3/js/buttons.print.min.js"></script>
+
     <style>
         select {
             color: black !important;
@@ -59,6 +67,8 @@
             color: mediumblue;
             font-weight: 900;
         }
+
+
     </style>
 </head>
 
@@ -75,7 +85,7 @@
                     </button>
                 </div>
                 <div>
-                    <a class="navbar-brand brand-logo" href="{{route('welcome')}}">
+                    <a class="navbar-brand brand-logo" href="{{ route('welcome') }}">
                         <h5>Simpel Ngasinan</h5>
                     </a>
                     <a class="navbar-brand brand-logo-mini" href="index.html">
@@ -144,7 +154,7 @@
                             <span class="menu-title">Dashboard</span>
                         </a>
                     </li>
-                    <li class="nav-item nav-category">Surat Surat</li>
+                    <li class="nav-item nav-category">Pembuatan Surat</li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ URL::to('suratpengantar') }}">
                             <i class="menu-icon mdi mdi-file-document"></i>
@@ -167,6 +177,13 @@
                         <a class="nav-link" href="{{ URL::to('suratpindah') }}">
                             <i class="menu-icon mdi mdi-file-document"></i>
                             <span class="menu-title">Surat Pindah</span>
+                        </a>
+                    </li>
+                    <li class="nav-item nav-category">Agenda Desa</li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ URL::to('agenda') }}">
+                            <i class="menu-icon mdi mdi-calendar-range"></i>
+                            <span class="menu-title">Agenda</span>
                         </a>
                     </li>
                     <li class="nav-item nav-category">Kependudukan</li>
