@@ -3,10 +3,10 @@
 namespace App\Http\Controllers\form;
 
 use App\Http\Controllers\Controller;
-use App\Models\surat_kelahiran;
+use App\Models\Surat_kelahiran as surat_kelahiran;
 use Illuminate\Http\Request;
 
-class suratkelahiranform extends Controller
+class SuratKelahiranFormController extends Controller
 {
     /**
      * Display a listing of the resource.

@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class surat_kelahiran extends Model
+class Surat_kelahiran extends Model
 {
 
     use HasFactory, SoftDeletes;

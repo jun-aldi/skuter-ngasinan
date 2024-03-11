@@ -3,12 +3,12 @@
 namespace App\Http\Controllers\form;
 
 use App\Http\Controllers\Controller;
-use App\Models\penduduk;
-use App\Models\surat_pengantar;
+use App\Models\Penduduk as penduduk;
+use App\Models\Surat_pengantar as surat_pengantar;
 use Illuminate\Http\Request;
 use vendor\yajra\datatables\src\DataTables as DataTables;
 
-class suratpengantarform extends Controller
+class SuratPengantarFormController extends Controller
 {
     /**
      * Display a listing of the resource.

@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\surat_kelahiran;
+use App\Models\Surat_kematian as surat_kematian;
 use Illuminate\Http\Request;
 use Yajra\DataTables\Facades\DataTables;
 
-class suratkelahiran extends Controller
+use function PHPUnit\Framework\returnSelf;
+
+class SuratKematianController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,24 +17,24 @@ class suratkelahiran extends Controller
      */
     public function index(Request $request)
     {
-        $title = "Surat Kelahiran";
+        $title = "Surat Kematian";
         if ($request->ajax()) {
-            $data = surat_kelahiran::select(['id', 'no_surat', 'created_at', 'nama_lengkap_anak', 'tanggal_lahir_anak','nama_ibu',]);
+            $data = surat_kematian::select(['id', 'nik_meninggal', 'created_at', 'tanggal_meninggal','no_surat', 'sebab_meninggal']);
             return Datatables::of($data)
                 ->addIndexColumn()
                 ->addColumn('action', function ($data) {
-                    $btn = ' <a href="javascript:void(0)" data-toggle="tooltip" data-id="' . $data->id . '" data-original-title="Delete" class="btn btn-danger btn-sm deleteKelahiran text-white ">Delete</a>';
-                    $btn .= '<a href="javascript:void(0)" data-toggle="tooltip" data-id="' . $data->id . '" data-original-title="Edit" class="edit btn btn-primary btn-sm editKelahiran text-white">Edit</a>';
+                    $btn = ' <a href="javascript:void(0)" data-toggle="tooltip" data-id="' . $data->id . '" data-original-title="Delete" class="text-white btn btn-danger btn-sm deleteKematian ">Delete</a>';
+                    $btn .= '<a href="javascript:void(0)" data-toggle="tooltip" data-id="' . $data->id . '" data-original-title="Edit" class="text-white edit btn btn-primary btn-sm editKematian">Edit</a>';
                     return $btn;
                 })
                 ->addColumn('lihatpdf', function ($data) {
-                    $url_download_file = route('printKelahiran', $data->id);
+                    $url_download_file = route('printKematian', $data->id);
                     return view('print.download-pengantar')->with('url_download_file', $url_download_file)->render();
                 })
                 ->rawColumns(['action','lihatpdf'])
                 ->make(true);
         }
-        return view('surat.surat-kelahiran')
+        return view('surat.surat-kematian')
         ->with('title', $title);
     }
 
@@ -55,20 +57,25 @@ class suratkelahiran extends Controller
     public function store(Request $request)
     {
         request()->validate([
+            'nik_meninggal' => 'required|max:16',
             'no_surat' => 'required',
-            'nama_kk' => 'required',
             'no_kk' => 'required',
-            'nama_lengkap_anak' => 'required',
-            'jenis_kelamin_anak' => 'required',
-            'tempat_dilahirkan' => 'required',
-            'tempat_kelahiran' => 'required',
-            'tanggal_lahir_anak' => 'required',
-            'jam_lahir_anak' => 'required',
-            'jenis_kelahiran' => 'required',
-            'kelahiran_ke' => 'required',
-            'pertolongan_kelahiran' => 'required',
-            'berat_bayi' => 'required',
-            'panjang_bayi' => 'required',
+            'nama_kk' => 'required',
+            'nama_lengkap_meninggal' => 'required',
+            'tempat_lahir_meninggal' => 'required',
+            'tanggal_lahir_meninggal' => 'required',
+            'jenis_kelamin_meninggal' => 'required',
+            'agama_meninggal' => 'required',
+            'pekerjaan_meninggal' => 'required',
+            'alamat_meninggal' => 'required',
+            'no_kk_meninggal' => 'required',
+            'status_anak_meninggal' => 'required',
+            'tempat_meninggal' => 'required',
+            'tanggal_meninggal' => 'required',
+            'pukul_meninggal' => 'required',
+            'sebab_meninggal' => 'required',
+            'yang_menerangkan' => 'required',
+            'bukti_kematian' => 'required',
             'pejabat_penandatangan' => 'required',
 
             //ayah
@@ -91,7 +98,7 @@ class suratkelahiran extends Controller
             'tanggal_lahir_pelapor' => 'required',
             'pekerjaan_pelapor' => 'required',
             'alamat_pelapor' => 'required',
-
+            'hubungan_pelapor' => 'required',
 
             //saksi
             'nik_saksi_1' => 'required|max:16',
@@ -108,21 +115,26 @@ class suratkelahiran extends Controller
             'alamat_saksi_2' => 'required',
         ]);
 
-        surat_kelahiran::updateOrCreate(['id'=>$request->id], [
+        surat_kematian::updateOrCreate(['id'=>$request->id], [
+            'nik_meninggal' => $request->nik_meninggal,
             'no_kk' => $request->no_kk,
             'nama_kk' => $request->nama_kk,
             'no_surat' => $request->no_surat,
-            'nama_lengkap_anak' => $request->nama_lengkap_anak,
-            'jenis_kelamin_anak' => $request->jenis_kelamin_anak,
-            'tempat_dilahirkan' => $request->tempat_dilahirkan,
-            'tempat_kelahiran' => $request->tempat_kelahiran,
-            'tanggal_lahir_anak' => $request->tanggal_lahir_anak,
-            'jam_lahir_anak' => $request->jam_lahir_anak,
-            'jenis_kelahiran' => $request->jenis_kelahiran,
-            'kelahiran_ke' => $request->kelahiran_ke,
-            'pertolongan_kelahiran' => $request->pertolongan_kelahiran,
-            'berat_bayi' => $request->berat_bayi,
-            'panjang_bayi' => $request->panjang_bayi,
+            'nama_lengkap_meninggal' => $request->nama_lengkap_meninggal,
+            'tempat_lahir_meninggal' => $request->tempat_lahir_meninggal,
+            'tanggal_lahir_meninggal' => $request->tanggal_lahir_meninggal,
+            'jenis_kelamin_meninggal' => $request->jenis_kelamin_meninggal,
+            'agama_meninggal' => $request->agama_meninggal,
+            'pekerjaan_meninggal' => $request->pekerjaan_meninggal,
+            'alamat_meninggal' => $request->alamat_meninggal,
+            'no_kk_meninggal' => $request->no_kk_meninggal,
+            'status_anak_meninggal' => $request->status_anak_meninggal,
+            'tempat_meninggal' => $request->tempat_meninggal,
+            'tanggal_meninggal' => $request->tanggal_meninggal,
+            'pukul_meninggal' => $request->pukul_meninggal,
+            'sebab_meninggal' => $request->sebab_meninggal,
+            'yang_menerangkan' => $request->yang_menerangkan,
+            'bukti_kematian' => $request->bukti_kematian,
             'pejabat_penandatangan' => $request->pejabat_penandatangan,
 
             'nik_ayah' => $request->nik_ayah,
@@ -143,6 +155,7 @@ class suratkelahiran extends Controller
             'tanggal_lahir_pelapor' => $request->tanggal_lahir_pelapor,
             'pekerjaan_pelapor' => $request->pekerjaan_pelapor,
             'alamat_pelapor' => $request->alamat_pelapor,
+            'hubungan_pelapor' => $request->hubungan_pelapor,
 
 
             'nik_saksi_1' => $request->nik_saksi_1,
@@ -161,6 +174,9 @@ class suratkelahiran extends Controller
         ]);
 
         return response()->json(['success' => "Data berhasil disimpan"]);
+
+
+
     }
 
     /**
@@ -182,8 +198,8 @@ class suratkelahiran extends Controller
      */
     public function edit($id)
     {
-        $surat_kelahiran = surat_kelahiran::find($id);
-        return response()->json($surat_kelahiran);
+        $surat_kematian = surat_kematian::find($id);
+        return response()->json($surat_kematian);
     }
 
     /**
@@ -206,9 +222,9 @@ class suratkelahiran extends Controller
      */
     public function destroy($id)
     {
-        $kematian = surat_kelahiran::where('id', $id)->firstOrFail();
-        surat_kelahiran::find($id)->delete();
+        $kematian = surat_kematian::where('id', $id)->firstOrFail();
+        surat_kematian::find($id)->delete();
 
-        return response()->json(['success' => 'Surat kelahian berhasil dihapus.']);
+        return response()->json(['success' => 'Surat kematian berhasil dihapus.']);
     }
 }

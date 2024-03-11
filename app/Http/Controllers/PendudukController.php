@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\penduduk as ModelsPenduduk;
+use App\Models\Penduduk as ModelsPenduduk;
 use Illuminate\Http\Request;
 use Yajra\DataTables\Facades\DataTables;
 
-class penduduk extends Controller
+class PendudukController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -21,8 +21,8 @@ class penduduk extends Controller
             return Datatables::of($data)
                 ->addIndexColumn()
                 ->addColumn('action', function ($data) {
-                    $btn = ' <a href="javascript:void(0)" data-toggle="tooltip" data-id="' . $data->id . '" data-original-title="Delete" class="btn btn-danger btn-sm deletePenduduk text-white ">Delete</a>';
-                    $btn .= '<a href="javascript:void(0)" data-toggle="tooltip" data-id="' . $data->id . '" data-original-title="Edit" class="edit btn btn-primary btn-sm editPenduduk text-white">Edit</a>';
+                    $btn = ' <a href="javascript:void(0)" data-toggle="tooltip" data-id="' . $data->id . '" data-original-title="Delete" class="text-white btn btn-danger btn-sm deletePenduduk ">Delete</a>';
+                    $btn .= '<a href="javascript:void(0)" data-toggle="tooltip" data-id="' . $data->id . '" data-original-title="Edit" class="text-white edit btn btn-primary btn-sm editPenduduk">Edit</a>';
                     return $btn;
                 })
                 ->rawColumns(['action'])

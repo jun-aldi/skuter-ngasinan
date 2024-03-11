@@ -2,14 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\penduduk;
-use App\Models\surat_kelahiran;
-use App\Models\surat_kematian;
-use App\Models\surat_pengantar;
-use App\Models\surat_pindah;
+use App\Models\Penduduk as penduduk;
+use App\Models\Surat_kelahiran as surat_kelahiran;
+use App\Models\Surat_kematian as  surat_kematian;
+use App\Models\Surat_pengantar as surat_pengantar;
+use App\Models\Surat_pindah as surat_pindah;
 use Illuminate\Http\Request;
 
-class dashboard extends Controller
+class DashboardController extends Controller
 {
     public function render()
     {

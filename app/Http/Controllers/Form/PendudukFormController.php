@@ -3,10 +3,10 @@
 namespace App\Http\Controllers\form;
 
 use App\Http\Controllers\Controller;
-use App\Models\penduduk;
+use App\Models\Penduduk as penduduk;
 use Illuminate\Http\Request;
 
-class pendudukform extends Controller
+class PendudukFormController extends Controller
 {
     /**
      * Display a listing of the resource.

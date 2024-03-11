@@ -3,10 +3,10 @@
 namespace App\Http\Controllers\form;
 
 use App\Http\Controllers\Controller;
-use App\Models\surat_kematian;
+use App\Models\Surat_kematian as surat_kematian;
 use Illuminate\Http\Request;
 
-class suratKematianForm extends Controller
+class SuratKematianFormController extends Controller
 {
     /**
      * Display a listing of the resource.

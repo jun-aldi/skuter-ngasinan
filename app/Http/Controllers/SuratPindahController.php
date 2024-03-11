@@ -1,22 +1,39 @@
 <?php
 
-namespace App\Http\Controllers\form;
+namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
-use App\Models\surat_pindah;
+use App\Models\Surat_pindah as surat_pindah;
 use Illuminate\Http\Request;
+use Yajra\DataTables\Facades\DataTables;
 
-class suratPindahForm extends Controller
+class SuratPindahController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $title = "Form Surat Pindah";
-        return view('form.surat-pindah-form')
+        $title = "Surat Pindah";
+        if ($request->ajax()) {
+            $data = surat_pindah::select(['id', 'no_kk', 'created_at', 'nama_kepala_keluarga','nik_pemohon', 'nama_lengkap']);
+            return Datatables::of($data)
+                ->addIndexColumn()
+                ->addColumn('action', function ($data) {
+                    $btn = ' <a href="javascript:void(0)" data-toggle="tooltip" data-id="' . $data->id . '" data-original-title="Delete" class="text-white btn btn-danger btn-sm deletePindah ">Delete</a>';
+                    $btn .= '<a href="javascript:void(0)" data-toggle="tooltip" data-id="' . $data->id . '" data-original-title="Edit" class="text-white edit btn btn-primary btn-sm editPindah">Edit</a>';
+                    return $btn;
+                })
+                ->addColumn('lihatpdf', function ($data) {
+                    $url_download_file = route('printPindahan', $data->id);
+                    return view('print.download-pengantar')->with('url_download_file', $url_download_file)->render();
+                })
+                ->rawColumns(['action','lihatpdf'])
+                ->make(true);
+        }
+
+        return view('surat.surat-pindah')
         ->with('title', $title);
     }
 
@@ -73,7 +90,9 @@ class suratPindahForm extends Controller
             'status_kk_pindah' => $request->status_kk_pindah,
             'pejabat_penandatangan' => $request->pejabat_penandatangan,
         ]);
-        return redirect('/suratpindah')->with('status', 'Form Data Has Been Inserted');
+
+
+        return response()->json(['success' => 'Data berhasil disimpan.']);
     }
 
     /**
@@ -95,7 +114,8 @@ class suratPindahForm extends Controller
      */
     public function edit($id)
     {
-        //
+        $surat_pindah = surat_pindah::find($id);
+        return response()->json($surat_pindah);
     }
 
     /**
@@ -118,6 +138,9 @@ class suratPindahForm extends Controller
      */
     public function destroy($id)
     {
-        //
+        $pindah = surat_pindah::where('id', $id)->firstOrFail();
+        surat_pindah::find($id)->delete();
+
+        return response()->json(['success' => 'Surat Pindah Berhasil Dihapus.']);
     }
 }

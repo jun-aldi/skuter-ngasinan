@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\surat_pengantar;
+use App\Models\Surat_pengantar as surat_pengantar;
 use Illuminate\Http\Request;
 use Yajra\DataTables\Facades\DataTables;
 
-class suratpengantar extends Controller
+class SuratPengantarController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -23,8 +23,8 @@ class suratpengantar extends Controller
             return Datatables::of($data)
                 ->addIndexColumn()
                 ->addColumn('action', function ($data) {
-                    $btn = ' <a href="javascript:void(0)" data-toggle="tooltip" data-id="' . $data->id . '" data-original-title="Delete" class="btn btn-danger btn-sm deletePengantar text-white ">Delete</a>';
-                    $btn .= '<a href="javascript:void(0)" data-toggle="tooltip" data-id="' . $data->id . '" data-original-title="Edit" class="edit btn btn-primary btn-sm editPengantar text-white">Edit</a>';
+                    $btn = ' <a href="javascript:void(0)" data-toggle="tooltip" data-id="' . $data->id . '" data-original-title="Delete" class="text-white btn btn-danger btn-sm deletePengantar ">Delete</a>';
+                    $btn .= '<a href="javascript:void(0)" data-toggle="tooltip" data-id="' . $data->id . '" data-original-title="Edit" class="text-white edit btn btn-primary btn-sm editPengantar">Edit</a>';
                     return $btn;
                 })
                 ->addColumn('lihatpdf', function ($data) {
